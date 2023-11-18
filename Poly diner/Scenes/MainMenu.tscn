@@ -47,6 +47,7 @@ alignment = 0
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartGameButton")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxFlat_tscpp")
 text = "Quit"
