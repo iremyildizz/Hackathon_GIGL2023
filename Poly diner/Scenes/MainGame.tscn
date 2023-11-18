@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djm760xim2nes"]
+
+[node name="MainGame" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 725.0
+offset_top = 314.0
+offset_right = 1151.0
+offset_bottom = 564.0
+theme_override_font_sizes/normal_font_size = 31
+text = "This is a test"

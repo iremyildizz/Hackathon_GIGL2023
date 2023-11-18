@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://brcyvx75ojco6"]
+
+[ext_resource type="Script" path="res://Scripts/Options.gd" id="1_5l5r8"]
+[ext_resource type="FontFile" uid="uid://ojlr03x0sjal" path="res://Multimedia/Font/Tealand.ttf" id="2_y0k0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mhsf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 25
+border_width_right = 60
+border_color = Color(0.533333, 0.8, 0.8, 0)
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5l5r8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 285.0
+offset_right = 993.0
+offset_bottom = 465.0
+theme_override_fonts/normal_font = ExtResource("2_y0k0l")
+text = "This is options"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 76.0
+offset_top = 924.0
+offset_right = 311.0
+offset_bottom = 1014.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_y0k0l")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_8mhsf")
+text = "Back"
+alignment = 0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
