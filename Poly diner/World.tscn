@@ -7,4 +7,5 @@ offset_left = 387.0
 offset_top = 138.0
 offset_right = 825.0
 offset_bottom = 344.0
-text = "This is a test"
+scale = Vector2(0.940375, 1.13699)
+text = "POLY DINER"
