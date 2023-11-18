@@ -13,7 +13,7 @@ config_version=5
 config/name="Poly diner"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://Multimedia/icon.svg"
+config/icon="res://Multimedia/Image/icon.svg"
 
 [display]
 
