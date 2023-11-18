@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bae62d22gkvvg"]
+[gd_scene load_steps=5 format=3 uid="uid://bae62d22gkvvg"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_tfmuu"]
 [ext_resource type="FontFile" uid="uid://ojlr03x0sjal" path="res://Multimedia/Font/Tealand.ttf" id="2_75lsx"]
+[ext_resource type="Texture2D" uid="uid://dgtqawtdfra5w" path="res://Multimedia/Image/Temp_Wallpaper.png" id="2_ejux4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tscpp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,17 +19,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tfmuu")
 
+[node name="TempWallpaper" type="Sprite2D" parent="."]
+modulate = Color(0.6, 0.486275, 0.443137, 1)
+position = Vector2(961, 538)
+texture = ExtResource("2_ejux4")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -246.5
+offset_top = 160.0
 offset_right = 246.5
 offset_bottom = 111.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_75lsx")
-theme_override_font_sizes/normal_font_size = 90
+theme_override_font_sizes/normal_font_size = 125
 text = "POLY DINER"
 fit_content = true
 autowrap_mode = 0
@@ -70,6 +77,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tscpp")
 text = "Quit"
 alignment = 0
 
+[connection signal="mouse_entered" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

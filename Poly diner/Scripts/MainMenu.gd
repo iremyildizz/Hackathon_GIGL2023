@@ -13,3 +13,11 @@ func _on_options_button_pressed():
 func _on_quit_button_pressed():
 	get_tree().quit()
 
+func _on_start_game_button_mouse_entered():
+	$VBoxContainer/StartGameButton.grab_focus()
+
+func _on_options_button_mouse_entered():
+	$VBoxContainer/OptionsButton.grab_focus()
+
+func _on_quit_button_mouse_entered():
+	$VBoxContainer/QuitButton.grab_focus()
