@@ -31,7 +31,7 @@ grow_vertical = 0
 
 [node name="StartGameButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_75lsx")
+focus_neighbor_top = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxFlat_tscpp")
 text = "Start Game"
@@ -47,7 +47,6 @@ alignment = 0
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_75lsx")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxFlat_tscpp")
 text = "Quit"
