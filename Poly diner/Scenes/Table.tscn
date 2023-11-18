@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dryslisnl7vpv"]
+
+[ext_resource type="Texture2D" uid="uid://dyfvyeu6u2upj" path="res://Multimedia/Image/Table.png" id="1_amx2u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pqvj6"]
+radius = 20.0
+height = 478.0
+
+[node name="Table" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("1_amx2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pqvj6")
