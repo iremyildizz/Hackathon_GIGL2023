@@ -1,11 +1,19 @@
-[gd_scene format=3 uid="uid://djm760xim2nes"]
+[gd_scene load_steps=4 format=3 uid="uid://djm760xim2nes"]
+
+[ext_resource type="Texture2D" uid="uid://cct5aqavtht1n" path="res://Multimedia/Image/BackgroundDraft.png" id="1_b5yfy"]
+[ext_resource type="Texture2D" uid="uid://cl2g6behpmi5l" path="res://Multimedia/Image/TablesPlacementDraft.png" id="2_jt61m"]
+[ext_resource type="PackedScene" uid="uid://bfvg4au37w4vq" path="res://Scenes/Player.tscn" id="3_aek4k"]
 
 [node name="MainGame" type="Node2D"]
+position = Vector2(960, 544)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 725.0
-offset_top = 314.0
-offset_right = 1151.0
-offset_bottom = 564.0
-theme_override_font_sizes/normal_font_size = 31
-text = "This is not a test"
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_b5yfy")
+
+[node name="TablePlacement" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_jt61m")
+
+[node name="Player" parent="." instance=ExtResource("3_aek4k")]
+position = Vector2(112, 216)
