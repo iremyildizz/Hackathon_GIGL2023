@@ -9,8 +9,7 @@ func _on_start_game_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/MainGame.tscn")
 
 func _on_options_button_pressed():
-	pass # Replace with function body.
-
+	get_tree().change_scene_to_file("res://Scenes/Options.tscn")
 
 func _on_quit_button_pressed():
 	get_tree().quit()
