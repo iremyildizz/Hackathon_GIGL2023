@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnrkt2x40v57s"]
+
+[ext_resource type="Texture2D" uid="uid://qklotlygq6pu" path="res://Multimedia/Image/CashRegister.png" id="1_xsn7g"]
+
+[node name="CashRegister" type="Node2D"]
+
+[node name="Image" type="Sprite2D" parent="."]
+texture = ExtResource("1_xsn7g")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl2g6behpmi5l"
-path="res://.godot/imported/TablesPlacementDraft.png-acdeffbcf0fadaa2e6b8f897987f0dde.ctex"
+uid="uid://cd7tgfq5oc8hj"
+path="res://.godot/imported/BackgroundMainGame.png-679a6d2ebfa6d2d834ccba87fb0efe62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multimedia/Image/TablesPlacementDraft.png"
-dest_files=["res://.godot/imported/TablesPlacementDraft.png-acdeffbcf0fadaa2e6b8f897987f0dde.ctex"]
+source_file="res://Multimedia/Image/BackgroundMainGame.png"
+dest_files=["res://.godot/imported/BackgroundMainGame.png-679a6d2ebfa6d2d834ccba87fb0efe62.ctex"]
 
 [params]
 

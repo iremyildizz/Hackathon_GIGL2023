@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cct5aqavtht1n"
-path="res://.godot/imported/BackgroundDraft.png-09570fa1095915576839599d7d91ca14.ctex"
+uid="uid://covd70y3hsvgq"
+path="res://.godot/imported/CounterSpace.png-31bf414719b445cbcfc71f382e1d7fa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Multimedia/Image/BackgroundDraft.png"
-dest_files=["res://.godot/imported/BackgroundDraft.png-09570fa1095915576839599d7d91ca14.ctex"]
+source_file="res://Multimedia/Image/CounterSpace.png"
+dest_files=["res://.godot/imported/CounterSpace.png-31bf414719b445cbcfc71f382e1d7fa3.ctex"]
 
 [params]
 
