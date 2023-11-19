@@ -7,6 +7,9 @@ func _ready():
 
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"
+
+func setHighlight(highlight : int) -> void: 
+	$TableImage.material.set_shader_parameter("line_thickness",highlight)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -14,8 +17,8 @@ func _process(delta):
 
 func _on_selection_area_body_entered(body):
 	if isBodyPlayer(body):
-		print("Entered")
+		setHighlight(3)
 	
 func _on_selection_area_body_exited(body):
 	if isBodyPlayer(body):
-		print("Exit")
+		setHighlight(0)

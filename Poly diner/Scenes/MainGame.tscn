@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dryslisnl7vpv" path="res://Scenes/Table.tscn" id="4_h3f3p"]
 
 [node name="MainGame" type="Node2D"]
-position = Vector2(960, 544)
+position = Vector2(960, 543)
 
 [node name="BackGround" parent="." instance=ExtResource("1_e10o1")]
 

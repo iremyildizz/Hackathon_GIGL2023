@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dryslisnl7vpv"]
+[gd_scene load_steps=7 format=3 uid="uid://dryslisnl7vpv"]
 
 [ext_resource type="Texture2D" uid="uid://dyfvyeu6u2upj" path="res://Multimedia/Image/Table.png" id="1_amx2u"]
 [ext_resource type="Script" path="res://Scripts/Table.gd" id="1_i0u36"]
+[ext_resource type="Shader" path="res://Scenes/Table.gdshader" id="2_b8svw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tn2n5"]
+resource_local_to_scene = true
+shader = ExtResource("2_b8svw")
+shader_parameter/line_color = Color(0.223529, 0.560784, 0.341176, 1)
+shader_parameter/line_thickness = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pqvj6"]
 radius = 20.0
@@ -14,8 +21,9 @@ height = 292.0
 [node name="Table" type="StaticBody2D"]
 script = ExtResource("1_i0u36")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
+[node name="TableImage" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tn2n5")
+position = Vector2(-9, -69)
 texture = ExtResource("1_amx2u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
