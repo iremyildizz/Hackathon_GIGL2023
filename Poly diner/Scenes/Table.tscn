@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dyfvyeu6u2upj" path="res://Multimedia/Image/Table.png" id="1_amx2u"]
 [ext_resource type="Script" path="res://Scripts/Table.gd" id="1_i0u36"]
-[ext_resource type="Shader" path="res://Scenes/Table.gdshader" id="2_b8svw"]
+[ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="2_b8svw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tn2n5"]
 resource_local_to_scene = true

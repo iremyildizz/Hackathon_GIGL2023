@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjmtdeep8ew7o"]
+[gd_scene load_steps=4 format=3 uid="uid://bjmtdeep8ew7o"]
 
 [ext_resource type="Texture2D" uid="uid://drjn3mr6gh6iy" path="res://Multimedia/Image/WaitingLine.png" id="1_4oq8h"]
+[ext_resource type="Script" path="res://Scenes/WaitingLine.gd" id="1_ehva1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hlu7"]
 radius = 10.9534
 height = 186.584
 
 [node name="WatingLine" type="StaticBody2D"]
+script = ExtResource("1_ehva1")
 
 [node name="Image" type="Sprite2D" parent="."]
 texture = ExtResource("1_4oq8h")
