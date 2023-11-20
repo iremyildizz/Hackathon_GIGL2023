@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://djm760xim2nes"]
 
-[ext_resource type="Script" path="res://Scenes/MainGame.gd" id="1_c1me5"]
 [ext_resource type="PackedScene" uid="uid://d25sumtj4r0dr" path="res://Scenes/Background.tscn" id="1_e10o1"]
+[ext_resource type="Script" path="res://Scripts/MainGame.gd" id="1_yan3h"]
 [ext_resource type="PackedScene" uid="uid://bjmtdeep8ew7o" path="res://Scenes/WaitingLine.tscn" id="2_41p0p"]
 [ext_resource type="PackedScene" uid="uid://bfvg4au37w4vq" path="res://Scenes/Player.tscn" id="3_aek4k"]
 [ext_resource type="PackedScene" uid="uid://dryslisnl7vpv" path="res://Scenes/Table.tscn" id="4_h3f3p"]
@@ -11,7 +11,7 @@
 
 [node name="MainGame" type="Node2D"]
 position = Vector2(960, 543)
-script = ExtResource("1_c1me5")
+script = ExtResource("1_yan3h")
 
 [node name="BackGround" parent="." instance=ExtResource("1_e10o1")]
 

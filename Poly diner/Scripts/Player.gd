@@ -8,15 +8,14 @@ const interactedHighlightColor : Color = Color.RED
 
 func _process(_delta):
 	move()
+	handleAction()
+	print(interactedNode)
 
 
 func move():
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
 	move_and_slide()
-	
-	handleAction()
-	print(interactedNode)
 
 
 func handleAction() -> void:
@@ -25,13 +24,13 @@ func handleAction() -> void:
 			return
 		
 		if interactedNode != null:
-			interactToNodes()
+			interactNodes()
 			return
 		
 		setInteractedNode(currentSelection)
 
 
-func interactToNodes() -> void:
+func interactNodes() -> void:
 	if currentSelection == interactedNode:
 		return
 	currentSelection.interactWith(interactedNode, $".")

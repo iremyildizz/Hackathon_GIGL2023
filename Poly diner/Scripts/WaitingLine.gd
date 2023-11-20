@@ -29,9 +29,9 @@ func selectFrontClients(body: Node2D, highlight : int, isSelected: bool) -> void
 	if isBodyPlayer(body) and clienScenestList.size() > 0:
 		var firstClient : Node2D = clienScenestList.front()
 		
-		if !body.isAnInteractedNode(firstClient) :
+		if !body.isAnInteractedNode(firstClient):
 			firstClient.setHighlight(highlight)
-			
+		
 		if isSelected:
 			body.setCurrentSelection(firstClient)
 		else:
