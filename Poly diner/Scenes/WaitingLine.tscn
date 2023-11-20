@@ -11,17 +11,38 @@ height = 186.584
 script = ExtResource("1_62r8j")
 
 [node name="Image" type="Sprite2D" parent="."]
+position = Vector2(0, 76)
 texture = ExtResource("1_4oq8h")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 76)
 polygon = PackedVector2Array(-304, -96, 192, -96, 296, -88, 184, 96, 168, 104, 72, 96, -304, 96)
 
 [node name="LineSelectionArea" type="Area2D" parent="."]
+position = Vector2(0, 76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LineSelectionArea"]
 position = Vector2(248, 16)
 rotation = 0.532325
 shape = SubResource("CapsuleShape2D_1hlu7")
 
+[node name="SpawnContainer" type="Node2D" parent="."]
+position = Vector2(0, 76)
+
+[node name="FirstLine" type="Node2D" parent="SpawnContainer"]
+y_sort_enabled = true
+position = Vector2(130, 0)
+
+[node name="SecondLine" type="Node2D" parent="SpawnContainer"]
+position = Vector2(-20, 0)
+
+[node name="ThridLine" type="Node2D" parent="SpawnContainer"]
+position = Vector2(-170, 0)
+
+[node name="NewClientTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="LineSelectionArea" to="." method="_on_line_selection_area_body_entered"]
 [connection signal="body_exited" from="LineSelectionArea" to="." method="_on_line_selection_area_body_exited"]
+[connection signal="timeout" from="NewClientTimer" to="." method="_on_new_client_timer_timeout"]

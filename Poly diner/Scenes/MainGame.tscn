@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://djm760xim2nes"]
+[gd_scene load_steps=8 format=3 uid="uid://djm760xim2nes"]
 
 [ext_resource type="PackedScene" uid="uid://d25sumtj4r0dr" path="res://Scenes/Background.tscn" id="1_e10o1"]
 [ext_resource type="PackedScene" uid="uid://bjmtdeep8ew7o" path="res://Scenes/WaitingLine.tscn" id="2_41p0p"]
 [ext_resource type="PackedScene" uid="uid://bfvg4au37w4vq" path="res://Scenes/Player.tscn" id="3_aek4k"]
 [ext_resource type="PackedScene" uid="uid://dryslisnl7vpv" path="res://Scenes/Table.tscn" id="4_h3f3p"]
-[ext_resource type="PackedScene" uid="uid://c3oq02srt87to" path="res://Scenes/Client.tscn" id="5_cj8nv"]
 [ext_resource type="PackedScene" uid="uid://cyh2k4qs2w1ov" path="res://Scenes/CounterSpace.tscn" id="6_ufhq2"]
 [ext_resource type="PackedScene" uid="uid://3w280shl4pao" path="res://Scenes/TrashCan.tscn" id="7_jipw7"]
 [ext_resource type="PackedScene" uid="uid://cnrkt2x40v57s" path="res://Scenes/CashRegister.tscn" id="8_p1o46"]
@@ -14,11 +13,11 @@ position = Vector2(960, 543)
 
 [node name="BackGround" parent="." instance=ExtResource("1_e10o1")]
 
-[node name="WatingLine" parent="." instance=ExtResource("2_41p0p")]
-position = Vector2(-656, 49)
-
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="WatingLine" parent="YSort" instance=ExtResource("2_41p0p")]
+position = Vector2(-656, -32)
 
 [node name="TableBL" parent="YSort" instance=ExtResource("4_h3f3p")]
 position = Vector2(-228, 365)
@@ -34,9 +33,6 @@ position = Vector2(416, -125)
 
 [node name="TableC" parent="YSort" instance=ExtResource("4_h3f3p")]
 position = Vector2(97, 90)
-
-[node name="Client" parent="YSort" instance=ExtResource("5_cj8nv")]
-position = Vector2(-544, 73)
 
 [node name="Player" parent="YSort" instance=ExtResource("3_aek4k")]
 position = Vector2(112, 216)
