@@ -2,9 +2,9 @@ extends StaticBody2D
 
 var clientScene = preload("res://Scenes/Client.tscn")
 var doubleClientScene = preload("res://Scenes/DoubleClient.tscn")
-@onready var clientPositions : Array[Node2D] = [$SpawnContainer/FirstLine, $SpawnContainer/SecondLine, $SpawnContainer/ThridLine]
+@onready var clientPositions : Array[Node2D] = [$SpawnContainer/FirstLine, $SpawnContainer/SecondLine, $SpawnContainer/ThirdLine]
 
-var clienScenestList : Array[Node2D] = []
+var clientScenesList : Array[Node2D] = []
 
 var doubleClientProbablility : int = 50
 const maxProbabilityValue : int = 100
@@ -26,8 +26,8 @@ func _on_line_selection_area_body_exited(body):
 
 
 func selectFrontClients(body: Node2D, highlight : int, isSelected: bool) -> void: 
-	if isBodyPlayer(body) and clienScenestList.size() > 0:
-		var firstClient : Node2D = clienScenestList.front()
+	if isBodyPlayer(body) and clientScenesList.size() > 0:
+		var firstClient : Node2D = clientScenesList.front()
 		
 		if !body.isAnInteractedNode(firstClient):
 			firstClient.setHighlight(highlight)
@@ -43,7 +43,7 @@ func isBodyPlayer(body) -> bool:
 
 
 func _on_new_client_timer_timeout():
-	if clienScenestList.size() < maxClientScenes:
+	if clientScenesList.size() < maxClientScenes:
 		addNewClientToQueue()
 	else : 
 		$NewClientTimer.stop()
@@ -59,23 +59,23 @@ func addNewClientToQueue() -> void:
 
 func instatiateClients(sceneType) -> void:
 	var newClientScene = sceneType.instantiate()
-	clientPositions[clienScenestList.size()].add_child(newClientScene)
-	clienScenestList.append(newClientScene)
+	clientPositions[clientScenesList.size()].add_child(newClientScene)
+	clientScenesList.append(newClientScene)
 
 
 func popClientFromQueue() -> void:
-	if clienScenestList.size() == 0:
+	if clientScenesList.size() == 0:
 		return
 
-	var firstClient = clienScenestList.pop_front()
+	var firstClient = clientScenesList.pop_front()
 	firstClient.get_parent().remove_child(firstClient)
-	# firstClient.queue_free()
+
 	advanceQueue()
 	$NewClientTimer.start()
 
 
 func advanceQueue() -> void:
-	for i in range(0, clienScenestList.size(), 1) :
-		clienScenestList[i].get_parent().remove_child(clienScenestList[i])
-		clientPositions[i].add_child(clienScenestList[i])
+	for i in range(0, clientScenesList.size(), 1) :
+		clientScenesList[i].get_parent().remove_child(clientScenesList[i])
+		clientPositions[i].add_child(clientScenesList[i])
 

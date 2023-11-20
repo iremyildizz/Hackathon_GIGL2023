@@ -20,9 +20,13 @@ func _on_selection_area_body_exited(body):
 
 func interactWith(interactedNode, player) -> void:
 	if interactedNode.has_method("getIsSingleClient") and clienScenestList.size() == 0:
+		get_tree().root.get_child(0).placeFirstClientInLine()
+		
 		if interactedNode.getIsSingleClient():
 			instatiateClient(interactedNode)
 		else:
+			interactedNode.setClientsTransformToOrigin()
+			
 			var firstClient : Node2D = interactedNode.getFirstClient()
 			firstClient.get_parent().remove_child(firstClient)
 			instatiateClient(firstClient)
@@ -30,11 +34,11 @@ func interactWith(interactedNode, player) -> void:
 			var secondClient : Node2D = interactedNode.getSecondClient()
 			secondClient.get_parent().remove_child(secondClient)
 			instatiateClient(secondClient)
+		
+	player.setInteractedNode($".")
 
 
 func instatiateClient(client) -> void:
-	#client.get_parent().remove_child(client)
-	get_tree().root.get_child(0).placeFirstClientInLine()
 	clientPositions[clienScenestList.size()].add_child(client)
 	clienScenestList.append(client)
 

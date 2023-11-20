@@ -4,12 +4,13 @@ const speed : int = 500
 var currentSelection : Node2D = null
 var interactedNode : Node2D = null
 
+const noHighlightColor : Color = Color(Color.BLACK, 0)
+const normalHighlightColor : Color = Color.TURQUOISE
 const interactedHighlightColor : Color = Color.RED
 
 func _process(_delta):
 	move()
 	handleAction()
-	print(interactedNode)
 
 
 func move():
@@ -41,6 +42,10 @@ func setCurrentSelection(nodeSelected: Node2D) -> void:
 
 
 func setInteractedNode(nodeInteracted: Node2D) -> void:
+	if interactedNode != null:
+		if interactedNode.has_method("setColor"):
+			interactedNode.setColor(noHighlightColor)
+	
 	interactedNode = nodeInteracted
 	if interactedNode.has_method("setColor"):
 		interactedNode.setColor(interactedHighlightColor)

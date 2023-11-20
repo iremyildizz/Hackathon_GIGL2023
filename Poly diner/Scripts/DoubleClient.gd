@@ -12,10 +12,12 @@ func setColor(color : Color) -> void:
 	$FirstClient.setColor(color)
 	$SecondClient.setColor(color)
 
+func setClientsTransformToOrigin() -> void:
+	$FirstClient.set_position(Vector2.ZERO)
+	$SecondClient.set_position(Vector2.ZERO)
 
 func interactWith(interactedNode, player) -> void:
-	$FirstClient.interactWith(interactedNode, player)
-	$SecondClient.interactWith(interactedNode, player)
+	player.setInteractedNode($".")
 
 
 func getFirstClient() -> Node2D:

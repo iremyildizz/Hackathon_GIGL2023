@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tn2n5"]
 resource_local_to_scene = true
 shader = ExtResource("2_b8svw")
-shader_parameter/line_color = Color(0.156863, 0.552941, 0.517647, 1)
+shader_parameter/line_color = Color(0.188235, 0.835294, 0.784314, 1)
 shader_parameter/line_thickness = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pqvj6"]

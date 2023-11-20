@@ -37,7 +37,7 @@ position = Vector2(130, 1)
 [node name="SecondLine" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-20, 0)
 
-[node name="ThridLine" type="Node2D" parent="SpawnContainer"]
+[node name="ThirdLine" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-170, -1)
 
 [node name="NewClientTimer" type="Timer" parent="."]
