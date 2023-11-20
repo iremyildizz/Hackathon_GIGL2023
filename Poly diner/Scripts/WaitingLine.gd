@@ -18,18 +18,24 @@ func _ready():
 
 
 func _on_line_selection_area_body_entered(body):
-	selectFrontClients(body, clientHighlightValue)
+	selectFrontClients(body, clientHighlightValue, true)
 
 
-func _on_line_selection_area_body_exited(body):
-	selectFrontClients(body, 0)
+func _on_line_selection_area_body_exited(body):	
+	selectFrontClients(body, 0, false)
 
 
-func selectFrontClients(body: Node2D, highlight : int) -> void: 
-	if isBodyPlayer(body):
-		if clienScenestList.size() > 0:
-			var firstClient = clienScenestList.front()
+func selectFrontClients(body: Node2D, highlight : int, isSelected: bool) -> void: 
+	if isBodyPlayer(body) and clienScenestList.size() > 0:
+		var firstClient : Node2D = clienScenestList.front()
+		
+		if !body.isAnInteractedNode(firstClient) :
 			firstClient.setHighlight(highlight)
+			
+		if isSelected:
+			body.setCurrentSelection(firstClient)
+		else:
+			body.setCurrentSelection(null)
 
 
 func isBodyPlayer(body) -> bool:
