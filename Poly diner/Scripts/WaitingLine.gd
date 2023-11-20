@@ -68,7 +68,8 @@ func popClientFromQueue() -> void:
 		return
 
 	var firstClient = clienScenestList.pop_front()
-	firstClient.queue_free()
+	firstClient.get_parent().remove_child(firstClient)
+	# firstClient.queue_free()
 	advanceQueue()
 	$NewClientTimer.start()
 

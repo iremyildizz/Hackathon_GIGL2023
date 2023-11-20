@@ -16,6 +16,7 @@ func move():
 	move_and_slide()
 	
 	handleAction()
+	print(interactedNode)
 
 
 func handleAction() -> void:
@@ -23,12 +24,27 @@ func handleAction() -> void:
 		if currentSelection == null:
 			return
 		
-		interactedNode = currentSelection
-		interactedNode.setColor(interactedHighlightColor)
+		if interactedNode != null:
+			interactToNodes()
+			return
+		
+		setInteractedNode(currentSelection)
+
+
+func interactToNodes() -> void:
+	if currentSelection == interactedNode:
+		return
+	currentSelection.interactWith(interactedNode, $".")
 
 
 func setCurrentSelection(nodeSelected: Node2D) -> void:
 	currentSelection = nodeSelected
+
+
+func setInteractedNode(nodeInteracted: Node2D) -> void:
+	interactedNode = nodeInteracted
+	if interactedNode.has_method("setColor"):
+		interactedNode.setColor(interactedHighlightColor)
 
 
 func isAnInteractedNode(nodeCompare: Node2D) -> bool:

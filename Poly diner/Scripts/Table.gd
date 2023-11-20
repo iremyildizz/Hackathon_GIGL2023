@@ -10,11 +10,33 @@ const tableHighlightValue : int = 3
 func _on_selection_area_body_entered(body):
 	if isBodyPlayer(body):
 		setHighlight(tableHighlightValue)
+		body.setCurrentSelection($".")
 
 
 func _on_selection_area_body_exited(body):
 	if isBodyPlayer(body):
 		setHighlight(0)
+		body.setCurrentSelection(null)
+
+func interactWith(interactedNode, player) -> void:
+	if interactedNode.has_method("getIsSingleClient") and clienScenestList.size() == 0:
+		if interactedNode.getIsSingleClient():
+			instatiateClient(interactedNode)
+		else:
+			var firstClient : Node2D = interactedNode.getFirstClient()
+			firstClient.get_parent().remove_child(firstClient)
+			instatiateClient(firstClient)
+			
+			var secondClient : Node2D = interactedNode.getSecondClient()
+			secondClient.get_parent().remove_child(secondClient)
+			instatiateClient(secondClient)
+
+
+func instatiateClient(client) -> void:
+	#client.get_parent().remove_child(client)
+	get_tree().root.get_child(0).placeFirstClientInLine()
+	clientPositions[clienScenestList.size()].add_child(client)
+	clienScenestList.append(client)
 
 
 func isBodyPlayer(body) -> bool:
