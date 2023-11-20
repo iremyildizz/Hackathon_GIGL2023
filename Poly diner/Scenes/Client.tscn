@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3oq02srt87to"]
 
 [ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="1_b7por"]
-[ext_resource type="Texture2D" uid="uid://d36r10s35p8b4" path="res://Multimedia/Image/PlayerImage.png" id="1_fyp0o"]
 [ext_resource type="Script" path="res://Scripts/Client.gd" id="1_vylgh"]
+[ext_resource type="Texture2D" uid="uid://d0tndyivpviqe" path="res://Multimedia/Image/ClientWaiting.png" id="3_lt2q8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykn0o"]
 resource_local_to_scene = true
@@ -15,5 +15,5 @@ script = ExtResource("1_vylgh")
 
 [node name="ClientImage" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ykn0o")
-position = Vector2(0, -100)
-texture = ExtResource("1_fyp0o")
+position = Vector2(-14, -111)
+texture = ExtResource("3_lt2q8")

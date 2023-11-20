@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+const tableHighlightValue : int = 3
+
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"
 
@@ -8,7 +10,7 @@ func setHighlight(highlight : int) -> void:
 
 func _on_selection_area_body_entered(body):
 	if isBodyPlayer(body):
-		setHighlight(3)
+		setHighlight(tableHighlightValue)
 	
 func _on_selection_area_body_exited(body):
 	if isBodyPlayer(body):
