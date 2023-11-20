@@ -36,5 +36,13 @@ shape = SubResource("CapsuleShape2D_pqvj6")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0n17y")
 
+[node name="ClientPlacesPoints" type="Node2D" parent="."]
+
+[node name="FirstPlace" type="Node2D" parent="ClientPlacesPoints"]
+position = Vector2(-184, -16)
+
+[node name="SecondPlace" type="Node2D" parent="ClientPlacesPoints"]
+position = Vector2(176, -16)
+
 [connection signal="body_entered" from="SelectionArea" to="." method="_on_selection_area_body_entered"]
 [connection signal="body_exited" from="SelectionArea" to="." method="_on_selection_area_body_exited"]

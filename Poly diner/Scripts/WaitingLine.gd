@@ -39,13 +39,14 @@ func _on_new_client_timer_timeout():
 func addNewClientToQueue() -> void:
 	var randomValue = randi() % maxProbabilityValue + 1
 	if randomValue <= doubleClientProbablility:
-		var newDoubleClientScene = doubleClientScene.instantiate()
-		clientPositions[clienScenestList.size()].add_child(newDoubleClientScene)
-		clienScenestList.append(newDoubleClientScene)
+		instatiateClients(doubleClientScene)
 	else:
-		var newClientScene = clientScene.instantiate()
-		clientPositions[clienScenestList.size()].add_child(newClientScene)
-		clienScenestList.append(newClientScene)
+		instatiateClients(clientScene)
+		
+func instatiateClients(sceneType) -> void:
+	var newClientScene = sceneType.instantiate()
+	clientPositions[clienScenestList.size()].add_child(newClientScene)
+	clienScenestList.append(newClientScene)
 	
 func popClientFromQueue() -> void:
 	if clienScenestList.size() == 0:
