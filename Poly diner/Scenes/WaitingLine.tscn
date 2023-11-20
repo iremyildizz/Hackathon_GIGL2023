@@ -27,20 +27,20 @@ rotation = 0.532325
 shape = SubResource("CapsuleShape2D_1hlu7")
 
 [node name="SpawnContainer" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 76)
 
 [node name="FirstLine" type="Node2D" parent="SpawnContainer"]
 y_sort_enabled = true
-position = Vector2(130, 0)
+position = Vector2(130, 1)
 
 [node name="SecondLine" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-20, 0)
 
 [node name="ThridLine" type="Node2D" parent="SpawnContainer"]
-position = Vector2(-170, 0)
+position = Vector2(-170, -1)
 
 [node name="NewClientTimer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [connection signal="body_entered" from="LineSelectionArea" to="." method="_on_line_selection_area_body_entered"]

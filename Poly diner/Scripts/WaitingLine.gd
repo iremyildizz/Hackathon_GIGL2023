@@ -1,9 +1,14 @@
 extends StaticBody2D
 
 var clientScene = preload("res://Scenes/Client.tscn")
+var doubleClientScene = preload("res://Scenes/DoubleClient.tscn")
 @onready var clientPositions : Array[Node2D] = [$SpawnContainer/FirstLine, $SpawnContainer/SecondLine, $SpawnContainer/ThridLine]
 
 var clienScenestList : Array[Node2D] = []
+
+var doubleClientProbablility : int = 50
+const maxProbabilityValue : int = 100
+
 const maxClientScenes : int = 3
 const clientHighlightValue : int = 3
 
@@ -32,9 +37,15 @@ func _on_new_client_timer_timeout():
 		$NewClientTimer.stop()
 		
 func addNewClientToQueue() -> void:
-	var newClientScene = clientScene.instantiate()
-	clientPositions[clienScenestList.size()].add_child(newClientScene)
-	clienScenestList.append(newClientScene)
+	var randomValue = randi() % maxProbabilityValue + 1
+	if randomValue <= doubleClientProbablility:
+		var newDoubleClientScene = doubleClientScene.instantiate()
+		clientPositions[clienScenestList.size()].add_child(newDoubleClientScene)
+		clienScenestList.append(newDoubleClientScene)
+	else:
+		var newClientScene = clientScene.instantiate()
+		clientPositions[clienScenestList.size()].add_child(newClientScene)
+		clienScenestList.append(newClientScene)
 	
 func popClientFromQueue() -> void:
 	if clienScenestList.size() == 0:
