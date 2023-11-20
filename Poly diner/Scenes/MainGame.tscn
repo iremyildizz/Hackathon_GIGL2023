@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmtdeep8ew7o" path="res://Scenes/WaitingLine.tscn" id="2_41p0p"]
 [ext_resource type="PackedScene" uid="uid://bfvg4au37w4vq" path="res://Scenes/Player.tscn" id="3_aek4k"]
 [ext_resource type="PackedScene" uid="uid://dryslisnl7vpv" path="res://Scenes/Table.tscn" id="4_h3f3p"]
-[ext_resource type="PackedScene" uid="uid://cyh2k4qs2w1ov" path="res://Scenes/CounterSpace.tscn" id="6_ufhq2"]
+[ext_resource type="PackedScene" uid="uid://cy2bj1yw5w1w4" path="res://Scenes/CounterSpace.tscn" id="6_ufhq2"]
 [ext_resource type="PackedScene" uid="uid://3w280shl4pao" path="res://Scenes/TrashCan.tscn" id="7_jipw7"]
 [ext_resource type="PackedScene" uid="uid://cnrkt2x40v57s" path="res://Scenes/CashRegister.tscn" id="8_p1o46"]
 
