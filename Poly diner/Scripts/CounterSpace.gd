@@ -11,6 +11,9 @@ extends Node2D
 var foodScene = preload("res://Scenes/Food.tscn") 
 var foodScenesList : Array[Node2D] = [null, null, null, null, null]
 
+const foodHighlightValue : int = 3
+const normalHighlightColor : Color = Color.TURQUOISE
+
 func _on_new_food_timer_timeout():
 	instatiateFood(foodScene)
 #	$NewFoodTimer.stop()
@@ -30,6 +33,31 @@ func instatiateFood(sceneType) -> void:
 		foodPositions[index].add_child(newFoodScene)
 	newFoodScene.initIceCream()
 
+func isBodyPlayer(body) -> bool:
+	return body.name == "Player"
 
-func _on_frist_plate_taking_area_body_entered(body):
-	pass
+func enterAndExitArea(foodSelected : Node2D, body, isEntered : bool ):
+	if isBodyPlayer(body) and foodSelected != null:
+		foodSelected.setColor(normalHighlightColor)
+		
+		if isEntered:
+			foodSelected.setHighlight(foodHighlightValue)
+			body.setCurrentSelection(foodSelected)
+		else:
+			foodSelected.setHighlight(0)
+			body.setCurrentSelection(null)
+	
+func _on_first_plate_taking_area_body_entered(body):
+	enterAndExitArea(foodScenesList[0], body, true)
+
+
+func _on_first_plate_taking_area_body_exited(body):
+	enterAndExitArea(foodScenesList[0], body, false)
+
+
+func _on_second_plate_taking_area_2_body_entered(body):
+	enterAndExitArea(foodScenesList[1], body, true)
+
+
+func _on_second_plate_taking_area_2_body_exited(body):
+	enterAndExitArea(foodScenesList[1], body, false)
