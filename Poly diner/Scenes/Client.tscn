@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3oq02srt87to"]
+[gd_scene load_steps=10 format=3 uid="uid://c3oq02srt87to"]
 
 [ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="1_b7por"]
 [ext_resource type="Script" path="res://Scripts/Client.gd" id="1_vylgh"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://lkwe4xrbr27f" path="res://Multimedia/Image/ClientLookingAtMenu.png" id="4_a0mlp"]
 [ext_resource type="Texture2D" uid="uid://bcglap7wjxnrw" path="res://Multimedia/Image/ClientAskForFood.png" id="5_3fkco"]
 [ext_resource type="Texture2D" uid="uid://bhbjwxc4lgmk8" path="res://Multimedia/Image/ThinkingCloud.png" id="6_ae8yn"]
-[ext_resource type="Texture2D" uid="uid://8m45gdt747uk" path="res://Multimedia/Image/ClientEating.png" id="7_nxpl2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykn0o"]
 resource_local_to_scene = true
@@ -22,11 +21,6 @@ shader_parameter/line_thickness = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jqvb8"]
 resource_local_to_scene = true
-shader = ExtResource("1_b7por")
-shader_parameter/line_color = Color(0, 0, 0, 0)
-shader_parameter/line_thickness = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ehai"]
 shader = ExtResource("1_b7por")
 shader_parameter/line_color = Color(0, 0, 0, 0)
 shader_parameter/line_thickness = 0.0
