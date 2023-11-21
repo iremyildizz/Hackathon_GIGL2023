@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://brcyvx75ojco6"]
+[gd_scene load_steps=5 format=3 uid="uid://brcyvx75ojco6"]
 
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_5l5r8"]
+[ext_resource type="Texture2D" uid="uid://dgtqawtdfra5w" path="res://Multimedia/Image/Temp_Wallpaper.png" id="2_gw488"]
 [ext_resource type="FontFile" uid="uid://ojlr03x0sjal" path="res://Multimedia/Font/Tealand.ttf" id="2_y0k0l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mhsf"]
@@ -18,14 +19,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5l5r8")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 285.0
-offset_right = 993.0
-offset_bottom = 465.0
-theme_override_fonts/normal_font = ExtResource("2_y0k0l")
-text = "This is options"
+[node name="TempWallpaper" type="Sprite2D" parent="."]
+modulate = Color(0.6, 0.486275, 0.443137, 1)
+position = Vector2(960, 540)
+texture = ExtResource("2_gw488")
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 2
@@ -39,5 +36,36 @@ theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxFlat_8mhsf")
 text = "Back"
 alignment = 0
+
+[node name="Options" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -198.0
+offset_top = 158.0
+offset_right = 220.0
+offset_bottom = 312.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_y0k0l")
+theme_override_font_sizes/normal_font_size = 125
+text = "Options"
+fit_content = true
+autowrap_mode = 0
+
+[node name="To be added" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -219.0
+offset_top = 444.0
+offset_right = 468.0
+offset_bottom = 598.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 85
+text = "To be added"
+fit_content = true
+autowrap_mode = 0
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
