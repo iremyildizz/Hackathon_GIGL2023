@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://hdgnh01vbmf4"]
+
+[ext_resource type="Script" path="res://Scripts/DoubleClient.gd" id="1_06ltl"]
+[ext_resource type="PackedScene" uid="uid://c3oq02srt87to" path="res://Scenes/Client.tscn" id="1_h4gu4"]
+
+[node name="DoubleClient" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_06ltl")
+
+[node name="FirstClient" parent="." instance=ExtResource("1_h4gu4")]
+position = Vector2(30, -40)
+
+[node name="SecondClient" parent="." instance=ExtResource("1_h4gu4")]
+position = Vector2(-30, 40)

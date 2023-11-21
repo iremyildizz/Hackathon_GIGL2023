@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d31q63ivj6k5b"]
+
+[ext_resource type="Texture2D" uid="uid://ckfwc2bd12bo4" path="res://Multimedia/Image/PlateClean.png" id="1_ctqdc"]
+
+[node name="Food" type="Node2D"]
+
+[node name="CleanPlate" type="Sprite2D" parent="."]
+texture = ExtResource("1_ctqdc")

@@ -1,8 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyh2k4qs2w1ov"]
+[gd_scene load_steps=3 format=3 uid="uid://cy2bj1yw5w1w4"]
 
 [ext_resource type="Texture2D" uid="uid://covd70y3hsvgq" path="res://Multimedia/Image/CounterSpace.png" id="1_ouyat"]
+[ext_resource type="Script" path="res://Scripts/CounterSpace.gd" id="1_t0ul2"]
 
 [node name="CounterSpace" type="Node2D"]
+script = ExtResource("1_t0ul2")
 
 [node name="Image" type="Sprite2D" parent="."]
 texture = ExtResource("1_ouyat")
+
+[node name="SpawnContainer" type="Node2D" parent="."]
+position = Vector2(192, 64)
+
+[node name="FirstPlace" type="Node2D" parent="SpawnContainer"]
+position = Vector2(176, -64)
+
+[node name="SecondPlace" type="Node2D" parent="SpawnContainer"]
+position = Vector2(-16, -64)
+
+[node name="ThirdPlace" type="Node2D" parent="SpawnContainer"]
+position = Vector2(-208, -64)
+
+[node name="ForthPlace" type="Node2D" parent="SpawnContainer"]
+position = Vector2(-400, -64)
+
+[node name="FifthPlace" type="Node2D" parent="SpawnContainer"]
+position = Vector2(-592, -64)
+
+[node name="NewFoodTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="NewFoodTimer" to="." method="_on_new_food_timer_timeout"]
