@@ -62,6 +62,12 @@ scale = Vector2(0.75, 0.75)
 [node name="EatingTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FrontEatingPoint" type="Node2D" parent="."]
+position = Vector2(100, -100)
+
+[node name="BackEatingPoint" type="Node2D" parent="."]
+position = Vector2(-100, -100)
+
 [node name="ClientEatingImage" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_1ehai")

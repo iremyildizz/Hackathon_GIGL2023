@@ -54,8 +54,13 @@ func startEating() -> void:
 	$ClientEatingImage.visible = true
 	
 	currentImage = $ClientEatingImage
+	choosedFood.get_parent().remove_child(choosedFood)
+	
 	if $ClientLookingAtMenuImage.flip_h:
+		$BackEatingPoint.add_child(choosedFood)
 		flipHImage()
+	else:
+		$FrontEatingPoint.add_child(choosedFood)
 
 
 func interactWith(interactedNode, player) -> void:
