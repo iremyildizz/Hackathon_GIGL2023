@@ -41,7 +41,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="GameTimer" type="Timer" parent="Control"]
-wait_time = 10.0
+wait_time = 100.0
 autostart = true
 
 [connection signal="value_changed" from="Control/TextureProgressBar" to="Control" method="_on_texture_progress_bar_value_changed"]

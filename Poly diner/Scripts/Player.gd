@@ -92,6 +92,7 @@ func addGrabbedFood(foodNode: Node2D, placementNode: Node2D, imageNode: Node2D) 
 	updateVisualState()
 	
 	interactedNode = null
+	currentSelection = null
 
 
 func serveTable(table: Node2D) -> void:
