@@ -4,6 +4,7 @@ var clientScene = preload("res://Scenes/Client.tscn")
 @onready var clientPositions : Array[Node2D] = [$ClientPlacesPoints/FirstPlace, $ClientPlacesPoints/SecondPlace]
 
 var clienScenestList : Array[Node2D] = []
+var clientsAreWaitingForFood = false
 
 const tableHighlightValue : int = 3
 const noHighlightColor : Color = Color(Color.BLACK, 0)
@@ -55,6 +56,7 @@ func instatiateClient(client) -> void:
 func _on_client_looking_menu_timer_timeout():
 	for client in clienScenestList:
 		client.askForFood()
+		clientsAreWaitingForFood = true
 
 
 func isBodyPlayer(body) -> bool:

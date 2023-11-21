@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var foodPositions : Array[Node2D] =  [
+@onready var foodPositions : Array[Node2D] = [
 	$SpawnContainer/FirstPlace, 
 	$SpawnContainer/SecondPlace, 
 	$SpawnContainer/ThirdPlace,
@@ -10,17 +10,32 @@ extends Node2D
 
 var foodScene = preload("res://Scenes/Food.tscn") 
 var foodScenesList : Array[Node2D] = [null, null, null, null, null]
+var foodQueue : Array[int] = []
 
 const foodHighlightValue : int = 3
 const normalHighlightColor : Color = Color.TURQUOISE
 
 
-func spawnFood(foodNumber: int):
-	pass
+func addFoodToQueue(foodNumber: int):
+	foodQueue.append(foodNumber)
 
 
 func _on_new_food_timer_timeout():
-	instatiateFood(foodScene)
+	if !isPlaceLeft():
+		return
+		
+	var nextFood = foodQueue.pop_front()
+	
+	if nextFood != null:
+		instatiateFood(foodScene, nextFood)
+
+
+func instatiateFood(sceneType, foodType: int) -> void:
+	var newFoodScene = sceneType.instantiate()
+	newFoodScene.setPlate(foodType)
+	var index : int = addToList(newFoodScene)
+	if index != -1:
+		foodPositions[index].add_child(newFoodScene)
 
 
 func addToList(newFoodScene : Node2D) -> int:
@@ -29,15 +44,19 @@ func addToList(newFoodScene : Node2D) -> int:
 			foodScenesList[i] = newFoodScene
 			return i
 			
-	$NewFoodTimer.stop()
 	return -1
 
 
-func instatiateFood(sceneType) -> void:
-	var newFoodScene = sceneType.instantiate()
-	var index : int = addToList(newFoodScene)
-	if index != -1:
-		foodPositions[index].add_child(newFoodScene)
+func deleteFoodFromList(food : Node2D) -> void:
+	for i in range(0, foodScenesList.size(), 1): 
+		if foodScenesList[i] == food:
+			foodScenesList[i] = null
+
+func isPlaceLeft() -> bool:
+	for i in range(0, foodScenesList.size(), 1): 
+		if foodScenesList[i] == null:
+			return true
+	return false
 
 
 func isBodyPlayer(body) -> bool:

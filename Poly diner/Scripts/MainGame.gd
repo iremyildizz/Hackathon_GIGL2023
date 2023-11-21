@@ -5,4 +5,8 @@ func placeFirstClientInLine() -> void:
 
 
 func askFoodToCook(foodNumber: int) -> void:
-	$CounterSpace.spawnFood(foodNumber)
+	$CounterSpace.addFoodToQueue(foodNumber)
+
+
+func takeCounterFood(food: Node2D) -> void:
+	$CounterSpace.deleteFoodFromList(food)

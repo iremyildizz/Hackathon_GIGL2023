@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfvg4au37w4vq"]
+[gd_scene load_steps=6 format=3 uid="uid://bfvg4au37w4vq"]
 
 [ext_resource type="Texture2D" uid="uid://d36r10s35p8b4" path="res://Multimedia/Image/PlayerImage.png" id="1_1pt32"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_mse6c"]
+[ext_resource type="Texture2D" uid="uid://dqlp3pdot68co" path="res://Multimedia/Image/PlayerWithOnePlate.png" id="3_qa6kr"]
+[ext_resource type="Texture2D" uid="uid://bq01465bqtvn" path="res://Multimedia/Image/PlayerWithTwoPlates.png" id="4_5lnp0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_scnb4"]
 radius = 24.0
@@ -17,3 +19,19 @@ texture = ExtResource("1_1pt32")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_scnb4")
+
+[node name="PlayerWithOnePlate" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4, -105)
+texture = ExtResource("3_qa6kr")
+
+[node name="PlayerWithTwoPlates" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, -106)
+texture = ExtResource("4_5lnp0")
+
+[node name="FirstPlateSpawnPoint" type="Node2D" parent="."]
+position = Vector2(80, -128)
+
+[node name="SecondPlateSpawnPoint" type="Node2D" parent="."]
+position = Vector2(-83, -128)
