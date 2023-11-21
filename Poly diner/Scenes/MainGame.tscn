@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djm760xim2nes"]
+[gd_scene load_steps=10 format=3 uid="uid://djm760xim2nes"]
 
 [ext_resource type="PackedScene" uid="uid://d25sumtj4r0dr" path="res://Scenes/Background.tscn" id="1_e10o1"]
 [ext_resource type="Script" path="res://Scripts/MainGame.gd" id="1_yan3h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cy2bj1yw5w1w4" path="res://Scenes/CounterSpace.tscn" id="6_ufhq2"]
 [ext_resource type="PackedScene" uid="uid://3w280shl4pao" path="res://Scenes/TrashCan.tscn" id="7_jipw7"]
 [ext_resource type="PackedScene" uid="uid://cnrkt2x40v57s" path="res://Scenes/CashRegister.tscn" id="8_p1o46"]
+[ext_resource type="PackedScene" uid="uid://bu30j1w3p34vt" path="res://Scenes/Timer.tscn" id="9_ffwwt"]
 
 [node name="MainGame" type="Node2D"]
 position = Vector2(960, 543)
@@ -47,3 +48,7 @@ position = Vector2(486, 478)
 
 [node name="CashRegister" parent="." instance=ExtResource("8_p1o46")]
 position = Vector2(766, 423)
+
+[node name="Timer" parent="." instance=ExtResource("9_ffwwt")]
+position = Vector2(-832, -503)
+scale = Vector2(0.15, 0.15)

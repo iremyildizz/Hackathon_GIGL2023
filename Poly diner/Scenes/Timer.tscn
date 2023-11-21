@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu30j1w3p34vt"]
+
+[ext_resource type="Texture2D" uid="uid://bwnbqnd1opw6o" path="res://Multimedia/Image/ProgressBarBlack.png" id="1_88fhr"]
+[ext_resource type="Script" path="res://Scenes/Control.gd" id="1_xbkk0"]
+[ext_resource type="Texture2D" uid="uid://lp1nud3dbk5u" path="res://Multimedia/Image/ProgressBarWhite.png" id="2_t2bi3"]
+
+[node name="Timer" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.996323, 1)
+script = ExtResource("1_xbkk0")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+fill_mode = 5
+texture_under = ExtResource("2_t2bi3")
+texture_progress = ExtResource("1_88fhr")
+
+[node name="sec" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 753.0
+offset_top = 299.0
+offset_right = 1168.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.922347, 1)
+theme_override_colors/default_color = Color(0.0666667, 0.388235, 0.501961, 1)
+theme_override_font_sizes/normal_font_size = 350
+text = "00"
+fit_content = true
+autowrap_mode = 0
+
+[node name="GameTimer" type="Timer" parent="Control"]
+wait_time = 100.0
+autostart = true
+
+[connection signal="value_changed" from="Control/TextureProgressBar" to="Control" method="_on_texture_progress_bar_value_changed"]
+[connection signal="timeout" from="Control/GameTimer" to="Control" method="_on_game_timer_timeout"]

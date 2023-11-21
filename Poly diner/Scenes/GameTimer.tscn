@@ -4,20 +4,62 @@
 [ext_resource type="Texture2D" uid="uid://bwnbqnd1opw6o" path="res://Multimedia/Image/ProgressBarBlack.png" id="2_ly5rx"]
 [ext_resource type="Texture2D" uid="uid://lp1nud3dbk5u" path="res://Multimedia/Image/ProgressBarWhite.png" id="3_pye1e"]
 
-[node name="GameTimer" type="Node2D"]
+[node name="GameTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_lgvjd")
-
-[node name="GameTimer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-autostart = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-value = 100.0
+value = 60.0
 fill_mode = 4
 texture_under = ExtResource("2_ly5rx")
 texture_progress = ExtResource("3_pye1e")
 
-[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lgvjd")
+seconds = 3
+
+[node name="min" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 642.0
+offset_top = 369.0
+offset_right = 928.0
+offset_bottom = 711.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.14902, 0.388235, 0.462745, 1)
+theme_override_font_sizes/normal_font_size = 250
+text = "00"
+fit_content = true
+autowrap_mode = 0
+
+[node name="sec" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 950.0
+offset_top = 369.0
+offset_right = 1236.0
+offset_bottom = 711.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.14902, 0.388235, 0.462745, 1)
+theme_override_font_sizes/normal_font_size = 250
+text = "00"
+fit_content = true
+autowrap_mode = 0
+
+[node name="GameTimer" type="Timer" parent="Control"]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Control/GameTimer" to="." method="_on_game_timer_timeout"]
