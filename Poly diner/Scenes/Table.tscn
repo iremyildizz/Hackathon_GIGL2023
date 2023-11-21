@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tn2n5"]
 resource_local_to_scene = true
 shader = ExtResource("2_b8svw")
-shader_parameter/line_color = Color(0.188235, 0.835294, 0.784314, 1)
+shader_parameter/line_color = Color(0, 0, 0, 0)
 shader_parameter/line_thickness = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pqvj6"]
@@ -42,7 +42,12 @@ shape = SubResource("CapsuleShape2D_0n17y")
 position = Vector2(-184, -16)
 
 [node name="SecondPlace" type="Node2D" parent="ClientPlacesPoints"]
-position = Vector2(203, -16)
+position = Vector2(184, -16)
+
+[node name="ClientLookingMenuTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="body_entered" from="SelectionArea" to="." method="_on_selection_area_body_entered"]
 [connection signal="body_exited" from="SelectionArea" to="." method="_on_selection_area_body_exited"]
+[connection signal="timeout" from="ClientLookingMenuTimer" to="." method="_on_client_looking_menu_timer_timeout"]

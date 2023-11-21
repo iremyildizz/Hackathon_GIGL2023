@@ -62,7 +62,7 @@ func instatiateClients(sceneType) -> void:
 
 
 func popClientFromQueue() -> void:
-	if clientScenesList.size() == 0:
+	if clientScenesList.is_empty():
 		return
 
 	var firstClient = clientScenesList.pop_front()

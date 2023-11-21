@@ -1,8 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://d31q63ivj6k5b"]
+[gd_scene load_steps=8 format=3 uid="uid://d31q63ivj6k5b"]
 
 [ext_resource type="Texture2D" uid="uid://ckfwc2bd12bo4" path="res://Multimedia/Image/PlateClean.png" id="1_ctqdc"]
+[ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="1_cypfi"]
+[ext_resource type="Script" path="res://Scripts/Food.gd" id="1_kd321"]
+[ext_resource type="Texture2D" uid="uid://d2b68gl4enrw2" path="res://Multimedia/Image/Poutine.png" id="2_e0ohx"]
+[ext_resource type="Texture2D" uid="uid://djpapssbci8yi" path="res://Multimedia/Image/IceCream.png" id="3_p15ow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njtje"]
+resource_local_to_scene = true
+shader = ExtResource("1_cypfi")
+shader_parameter/line_color = Color(0, 0, 0, 0)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4smra"]
 
 [node name="Food" type="Node2D"]
+material = SubResource("ShaderMaterial_njtje")
+script = ExtResource("1_kd321")
 
 [node name="CleanPlate" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4smra")
+use_parent_material = true
 texture = ExtResource("1_ctqdc")
+
+[node name="Poutine" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, -6)
+texture = ExtResource("2_e0ohx")
+
+[node name="IceCream" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -39)
+texture = ExtResource("3_p15ow")

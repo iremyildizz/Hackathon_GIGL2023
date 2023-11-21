@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://1k0orjyflceh"]
+
+[ext_resource type="FontFile" uid="uid://ojlr03x0sjal" path="res://Multimedia/Font/Tealand.ttf" id="1_i1562"]
+[ext_resource type="Script" path="res://Scripts/EndMenu.gd" id="1_q31i3"]
+[ext_resource type="Texture2D" uid="uid://dcbu53bbecp00" path="res://Multimedia/Image/EndMenuWallpaper.png" id="2_tdcab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4s5f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 25
+border_width_right = 60
+border_color = Color(0.533333, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onc1c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 25
+border_width_right = 60
+border_color = Color(0.533333, 0.8, 0.8, 0)
+
+[node name="EndMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q31i3")
+
+[node name="TempWallpaper" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_tdcab")
+
+[node name="GameTitle" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.5
+offset_top = 160.0
+offset_right = 246.5
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_i1562")
+theme_override_font_sizes/normal_font_size = 125
+text = "Day Ended"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 828.0
+offset_right = 466.0
+offset_bottom = 918.0
+theme_override_fonts/font = ExtResource("1_i1562")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4s5f")
+text = "Main Menu"
+alignment = 0
+
+[node name="NextDayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 828.0
+offset_right = 1830.0
+offset_bottom = 918.0
+theme_override_fonts/font = ExtResource("1_i1562")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4s5f")
+text = "Next Day"
+alignment = 0
+
+[node name="UpgradesMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 925.0
+offset_right = 1830.0
+offset_bottom = 1015.0
+theme_override_fonts/font = ExtResource("1_i1562")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4s5f")
+text = "Upgrades"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 928.0
+offset_right = 277.0
+offset_bottom = 1009.0
+focus_neighbor_bottom = NodePath("../StartGameButton")
+theme_override_fonts/font = ExtResource("1_i1562")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_onc1c")
+text = "Quit"
+alignment = 0
+
+[connection signal="mouse_entered" from="MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="NextDayButton" to="." method="_on_next_day_button_mouse_entered"]
+[connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]
+[connection signal="mouse_entered" from="UpgradesMenuButton" to="." method="_on_upgrades_menu_button_mouse_entered"]
+[connection signal="pressed" from="UpgradesMenuButton" to="." method="_on_upgrades_menu_button_pressed"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
