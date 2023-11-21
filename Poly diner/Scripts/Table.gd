@@ -48,6 +48,13 @@ func interactWith(interactedNode, player) -> void:
 func instatiateClient(client) -> void:
 	clientPositions[clienScenestList.size()].add_child(client)
 	clienScenestList.append(client)
+	client.lookAtMenu()
+	$ClientLookingMenuTimer.start()
+
+
+func _on_client_looking_menu_timer_timeout():
+	for client in clienScenestList:
+		client.askForFood()
 
 
 func isBodyPlayer(body) -> bool:
@@ -61,3 +68,6 @@ func setHighlight(highlight : int) -> void:
 func setColor(color: Color) -> void: 
 	if color != Color.RED:
 		$TableImage.material.set_shader_parameter("line_color", color)
+
+
+

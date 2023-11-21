@@ -42,7 +42,12 @@ shape = SubResource("CapsuleShape2D_0n17y")
 position = Vector2(-184, -16)
 
 [node name="SecondPlace" type="Node2D" parent="ClientPlacesPoints"]
-position = Vector2(203, -16)
+position = Vector2(184, -16)
+
+[node name="ClientLookingMenuTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="body_entered" from="SelectionArea" to="." method="_on_selection_area_body_entered"]
 [connection signal="body_exited" from="SelectionArea" to="." method="_on_selection_area_body_exited"]
+[connection signal="timeout" from="ClientLookingMenuTimer" to="." method="_on_client_looking_menu_timer_timeout"]
