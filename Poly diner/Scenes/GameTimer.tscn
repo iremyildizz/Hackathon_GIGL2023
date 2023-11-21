@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjpnv2ejwvkbn"]
+
+[ext_resource type="Script" path="res://Scripts/GameTimer.gd" id="1_lgvjd"]
+[ext_resource type="Texture2D" uid="uid://bwnbqnd1opw6o" path="res://Multimedia/Image/ProgressBarBlack.png" id="2_ly5rx"]
+[ext_resource type="Texture2D" uid="uid://lp1nud3dbk5u" path="res://Multimedia/Image/ProgressBarWhite.png" id="3_pye1e"]
+
+[node name="GameTimer" type="Node2D"]
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+script = ExtResource("1_lgvjd")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("2_ly5rx")
+texture_progress = ExtResource("3_pye1e")
+
+[connection signal="timeout" from="GameTimer" to="GameTimer" method="_on_timeout"]
