@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy2bj1yw5w1w4"]
+[gd_scene load_steps=3 format=3 uid="uid://cy2bj1yw5w1w4"]
 
 [ext_resource type="Texture2D" uid="uid://covd70y3hsvgq" path="res://Multimedia/Image/CounterSpace.png" id="1_ouyat"]
 [ext_resource type="Script" path="res://Scripts/CounterSpace.gd" id="1_t0ul2"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fe8oy"]
 
 [node name="CounterSpace" type="Node2D"]
 script = ExtResource("1_t0ul2")
@@ -16,11 +14,6 @@ position = Vector2(192, 64)
 
 [node name="FirstPlace" type="Node2D" parent="SpawnContainer"]
 position = Vector2(176, -64)
-
-[node name="FristPlateTakingArea" type="Area2D" parent="SpawnContainer/FirstPlace"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnContainer/FirstPlace/FristPlateTakingArea"]
-shape = SubResource("CircleShape2D_fe8oy")
 
 [node name="SecondPlace" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-16, -64)
@@ -37,5 +30,4 @@ position = Vector2(-592, -64)
 [node name="NewFoodTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="body_entered" from="SpawnContainer/FirstPlace/FristPlateTakingArea" to="." method="_on_frist_plate_taking_area_body_entered"]
 [connection signal="timeout" from="NewFoodTimer" to="." method="_on_new_food_timer_timeout"]
