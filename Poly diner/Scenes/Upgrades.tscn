@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3cagv3faqryn"]
+[gd_scene load_steps=5 format=3 uid="uid://b3cagv3faqryn"]
 
 [ext_resource type="FontFile" uid="uid://ojlr03x0sjal" path="res://Multimedia/Font/Tealand.ttf" id="1_vhi2w"]
 [ext_resource type="Script" path="res://Scripts/Upgrades.gd" id="1_xfxam"]
+[ext_resource type="Texture2D" uid="uid://dp8kldac00xw6" path="res://Multimedia/Image/UpgradeMenuWallpaper.png" id="2_katcw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fg5f0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,34 +19,75 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xfxam")
 
-[node name="Upgrades" type="RichTextLabel" parent="."]
+[node name="TempWallpaper" type="Sprite2D" parent="."]
+modulate = Color(0.631373, 0.631373, 0.631373, 1)
+position = Vector2(960, 540)
+texture = ExtResource("2_katcw")
+
+[node name="To be made2" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -246.5
-offset_top = 160.0
-offset_right = 246.5
-offset_bottom = 111.0
+offset_left = -800.0
+offset_top = 224.0
+offset_right = 145.0
+offset_bottom = 471.0
 grow_horizontal = 2
+theme_override_colors/default_color = Color(0.168627, 0.168627, 0.168627, 1)
 theme_override_fonts/normal_font = ExtResource("1_vhi2w")
-theme_override_font_sizes/normal_font_size = 125
-text = "Upgrades"
+theme_override_font_sizes/normal_font_size = 40
+text = "Faster movement speed"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Upgrades2" type="RichTextLabel" parent="."]
+[node name="To be made3" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -296.0
-offset_top = 336.0
-offset_right = 296.0
-offset_bottom = 490.0
+offset_left = -712.0
+offset_top = 480.0
+offset_right = 233.0
+offset_bottom = 727.0
 grow_horizontal = 2
+theme_override_colors/default_color = Color(0.168627, 0.168627, 0.168627, 1)
 theme_override_fonts/normal_font = ExtResource("1_vhi2w")
-theme_override_font_sizes/normal_font_size = 125
+theme_override_font_sizes/normal_font_size = 40
+text = "More tips"
+fit_content = true
+autowrap_mode = 0
+
+[node name="To be made4" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -792.0
+offset_top = 776.0
+offset_right = 153.0
+offset_bottom = 1023.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_fonts/normal_font = ExtResource("1_vhi2w")
+theme_override_font_sizes/normal_font_size = 40
+text = "Longer waiting time"
+fit_content = true
+autowrap_mode = 0
+
+[node name="To be made" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -464.0
+offset_top = 352.0
+offset_right = 481.0
+offset_bottom = 599.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.588235, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_vhi2w")
+theme_override_font_sizes/normal_font_size = 200
 text = "To be made"
 fit_content = true
 autowrap_mode = 0
