@@ -59,6 +59,15 @@ func _on_client_looking_menu_timer_timeout():
 		clientsAreWaitingForFood = true
 
 
+func serveClient(foodNode: Node2D) -> bool:
+	if clientsAreWaitingForFood:
+		for client in clienScenestList:
+			if client.choosedFood.plate == foodNode.plate:
+				clienScenestList.erase(client)
+				return true
+	return false
+
+
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"
 

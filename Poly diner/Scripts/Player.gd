@@ -57,10 +57,17 @@ func setInteractedNode(nodeInteracted: Node2D) -> void:
 	
 	if interactedNodeIsfoodPlate():
 		takeFood(interactedNode)
+	
+	if interactedNodeIsTablePlate():
+		serveTable(interactedNode)
 
 
 func isAnInteractedNode(nodeCompare: Node2D) -> bool:
 	return nodeCompare != null and nodeCompare == interactedNode
+
+
+func interactedNodeIsTablePlate() -> bool:
+	return interactedNode != null and interactedNode.has_method("serveClient")
 
 
 func interactedNodeIsfoodPlate() -> bool:
@@ -89,3 +96,11 @@ func addGrabbedFood(foodNode: Node2D, placementNode: Node2D, imageNode: Node2D) 
 	grabbedFoodList.append(foodNode)
 	
 	interactedNode = null
+
+
+func serveTable(table: Node2D) -> void:
+	if grabbedFoodList.size() > 0:
+		for food in grabbedFoodList:
+			if table.serveClient(food):
+				grabbedFoodList.erase(food)
+				serveTable(table)
