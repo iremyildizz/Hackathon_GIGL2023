@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bu30j1w3p34vt"]
 
 [ext_resource type="Texture2D" uid="uid://bwnbqnd1opw6o" path="res://Multimedia/Image/ProgressBarBlack.png" id="1_88fhr"]
-[ext_resource type="Script" path="res://Scenes/Control.gd" id="1_xbkk0"]
+[ext_resource type="Script" path="res://Scripts/Control.gd" id="1_f15bj"]
 [ext_resource type="Texture2D" uid="uid://lp1nud3dbk5u" path="res://Multimedia/Image/ProgressBarWhite.png" id="2_t2bi3"]
 
 [node name="Timer" type="Node2D"]
@@ -12,9 +12,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.996323, 1)
-script = ExtResource("1_xbkk0")
+script = ExtResource("1_f15bj")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 fill_mode = 5
