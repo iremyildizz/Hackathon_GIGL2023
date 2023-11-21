@@ -8,20 +8,24 @@ extends Node2D
 	$SpawnContainer/FifthPlace
 ]
 
-var plateCleanScene = preload("res://Scenes/Food.tscn") 
-var foodScenesList : Array[Node2D] = []
-
-const maxFoodScenes = 5
+var foodScene = preload("res://Scenes/Food.tscn") 
+var foodScenesList : Array[Node2D] = [null, null, null, null, null]
 
 func _on_new_food_timer_timeout():
-	print("time out")
-	if foodScenesList.size() < maxFoodScenes:
-		instatiateFood(plateCleanScene)
-	else : 
-		$NewFoodTimer.stop()
+	instatiateFood(foodScene)
+#	$NewFoodTimer.stop()
 
+func addToList(newFoodScene : Node2D) -> int:
+	for i in range(0, foodScenesList.size(), 1): 
+		if foodScenesList[i] == null:
+			foodScenesList[i] = newFoodScene
+			return i
+	return -1
 
 func instatiateFood(sceneType) -> void:
 	var newFoodScene = sceneType.instantiate()
-	foodPositions[foodScenesList.size()].add_child(newFoodScene)
-	foodScenesList.append(newFoodScene)
+	var index : int = addToList(newFoodScene)
+	if index != -1:
+		foodPositions[index].add_child(newFoodScene)
+	newFoodScene.initPoutine()
+	
