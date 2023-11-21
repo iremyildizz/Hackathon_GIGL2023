@@ -9,8 +9,9 @@ func setHighlight(highlight : int) -> void:
 
 
 func setColor(color : Color) -> void: 
-	$FirstClient.setColor(color)
-	$SecondClient.setColor(color)
+	if get_child_count() > 0:
+		$FirstClient.setColor(color)
+		$SecondClient.setColor(color)
 
 func setClientsTransformToOrigin() -> void:
 	$FirstClient.set_position(Vector2.ZERO)

@@ -11,10 +11,7 @@ const maxProbabilityValue : int = 100
 
 const maxClientScenes : int = 3
 const clientHighlightValue : int = 3
-
-
-func _ready():
-	pass
+const normalHighlightColor : Color = Color.TURQUOISE
 
 
 func _on_line_selection_area_body_entered(body):
@@ -31,6 +28,7 @@ func selectFrontClients(body: Node2D, highlight : int, isSelected: bool) -> void
 		
 		if !body.isAnInteractedNode(firstClient):
 			firstClient.setHighlight(highlight)
+			firstClient.setColor(normalHighlightColor)
 		
 		if isSelected:
 			body.setCurrentSelection(firstClient)

@@ -6,6 +6,7 @@ var clientScene = preload("res://Scenes/Client.tscn")
 var clienScenestList : Array[Node2D] = []
 
 const tableHighlightValue : int = 3
+const noHighlightColor : Color = Color(Color.BLACK, 0)
 
 func _on_selection_area_body_entered(body):
 	if isBodyPlayer(body):
@@ -26,6 +27,7 @@ func interactWith(interactedNode, player) -> void:
 			instatiateClient(interactedNode)
 		else:
 			interactedNode.setClientsTransformToOrigin()
+			interactedNode.setColor(noHighlightColor)
 			
 			var firstClient : Node2D = interactedNode.getFirstClient()
 			firstClient.get_parent().remove_child(firstClient)
@@ -34,6 +36,7 @@ func interactWith(interactedNode, player) -> void:
 			var secondClient : Node2D = interactedNode.getSecondClient()
 			secondClient.get_parent().remove_child(secondClient)
 			instatiateClient(secondClient)
+			secondClient.flipHImage()
 		
 	player.setInteractedNode($".")
 
