@@ -4,7 +4,7 @@ extends Node2D
 	$SpawnContainer/FirstPlace, 
 	$SpawnContainer/SecondPlace, 
 	$SpawnContainer/ThirdPlace,
-	$SpawnContainer/ForthPlace, 
+	$SpawnContainer/FourthPlace, 
 	$SpawnContainer/FifthPlace
 ]
 
@@ -55,9 +55,33 @@ func _on_first_plate_taking_area_body_exited(body):
 	enterAndExitArea(foodScenesList[0], body, false)
 
 
-func _on_second_plate_taking_area_2_body_entered(body):
+func _on_second_plate_taking_area_body_entered(body):
 	enterAndExitArea(foodScenesList[1], body, true)
 
 
-func _on_second_plate_taking_area_2_body_exited(body):
+func _on_second_plate_taking_area_body_exited(body):
 	enterAndExitArea(foodScenesList[1], body, false)
+
+
+func _on_third_plate_taking_area_body_entered(body):
+	enterAndExitArea(foodScenesList[2], body, true)
+
+
+func _on_third_plate_taking_area_body_exited(body):
+	enterAndExitArea(foodScenesList[2], body, false)
+	
+
+func _on_fourth_plate_taking_area_body_entered(body):
+	enterAndExitArea(foodScenesList[3], body, true)
+
+
+func _on_fourth_plate_taking_area_body_exited(body):
+	enterAndExitArea(foodScenesList[3], body, false)
+
+
+func _on_fifth_plate_taking_area_body_entered(body):
+	enterAndExitArea(foodScenesList[4], body, true)
+
+
+func _on_fifth_plate_taking_area_body_exited(body):
+	enterAndExitArea(foodScenesList[4], body, false)

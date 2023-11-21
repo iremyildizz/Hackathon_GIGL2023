@@ -12,7 +12,7 @@ script = ExtResource("1_t0ul2")
 texture = ExtResource("1_ouyat")
 
 [node name="SpawnContainer" type="Node2D" parent="."]
-position = Vector2(192, 64)
+position = Vector2(192, 71)
 
 [node name="FirstPlace" type="Node2D" parent="SpawnContainer"]
 position = Vector2(176, -64)
@@ -26,26 +26,50 @@ shape = SubResource("CapsuleShape2D_w64k7")
 [node name="SecondPlace" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-16, -64)
 
-[node name="SecondPlateTakingArea2" type="Area2D" parent="SpawnContainer/SecondPlace"]
+[node name="SecondPlateTakingArea" type="Area2D" parent="SpawnContainer/SecondPlace"]
 
-[node name="SecondPlateCollision" type="CollisionShape2D" parent="SpawnContainer/SecondPlace/SecondPlateTakingArea2"]
+[node name="SecondPlateCollision" type="CollisionShape2D" parent="SpawnContainer/SecondPlace/SecondPlateTakingArea"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_w64k7")
 
 [node name="ThirdPlace" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-208, -64)
 
-[node name="ForthPlace" type="Node2D" parent="SpawnContainer"]
+[node name="ThirdPlateTakingArea" type="Area2D" parent="SpawnContainer/ThirdPlace"]
+
+[node name="ThirdPlateCollision" type="CollisionShape2D" parent="SpawnContainer/ThirdPlace/ThirdPlateTakingArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w64k7")
+
+[node name="FourthPlace" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-400, -64)
+
+[node name="FourthPlateTakingArea" type="Area2D" parent="SpawnContainer/FourthPlace"]
+
+[node name="FourthPlateCollision" type="CollisionShape2D" parent="SpawnContainer/FourthPlace/FourthPlateTakingArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w64k7")
 
 [node name="FifthPlace" type="Node2D" parent="SpawnContainer"]
 position = Vector2(-592, -64)
+
+[node name="FifthPlateTakingArea" type="Area2D" parent="SpawnContainer/FifthPlace"]
+
+[node name="FifthPlateCollision" type="CollisionShape2D" parent="SpawnContainer/FifthPlace/FifthPlateTakingArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w64k7")
 
 [node name="NewFoodTimer" type="Timer" parent="."]
 autostart = true
 
 [connection signal="body_entered" from="SpawnContainer/FirstPlace/FirstPlateTakingArea" to="." method="_on_first_plate_taking_area_body_entered"]
 [connection signal="body_exited" from="SpawnContainer/FirstPlace/FirstPlateTakingArea" to="." method="_on_first_plate_taking_area_body_exited"]
-[connection signal="body_entered" from="SpawnContainer/SecondPlace/SecondPlateTakingArea2" to="." method="_on_second_plate_taking_area_2_body_entered"]
-[connection signal="body_exited" from="SpawnContainer/SecondPlace/SecondPlateTakingArea2" to="." method="_on_second_plate_taking_area_2_body_exited"]
+[connection signal="body_entered" from="SpawnContainer/SecondPlace/SecondPlateTakingArea" to="." method="_on_second_plate_taking_area_body_entered"]
+[connection signal="body_exited" from="SpawnContainer/SecondPlace/SecondPlateTakingArea" to="." method="_on_second_plate_taking_area_body_exited"]
+[connection signal="body_entered" from="SpawnContainer/ThirdPlace/ThirdPlateTakingArea" to="." method="_on_third_plate_taking_area_body_entered"]
+[connection signal="body_exited" from="SpawnContainer/ThirdPlace/ThirdPlateTakingArea" to="." method="_on_third_plate_taking_area_body_exited"]
+[connection signal="body_entered" from="SpawnContainer/FourthPlace/FourthPlateTakingArea" to="." method="_on_fourth_plate_taking_area_body_entered"]
+[connection signal="body_exited" from="SpawnContainer/FourthPlace/FourthPlateTakingArea" to="." method="_on_fourth_plate_taking_area_body_exited"]
+[connection signal="body_entered" from="SpawnContainer/FifthPlace/FifthPlateTakingArea" to="." method="_on_fifth_plate_taking_area_body_entered"]
+[connection signal="body_exited" from="SpawnContainer/FifthPlace/FifthPlateTakingArea" to="." method="_on_fifth_plate_taking_area_body_exited"]
 [connection signal="timeout" from="NewFoodTimer" to="." method="_on_new_food_timer_timeout"]
