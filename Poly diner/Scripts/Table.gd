@@ -7,17 +7,21 @@ var clienScenestList : Array[Node2D] = []
 
 const tableHighlightValue : int = 3
 const noHighlightColor : Color = Color(Color.BLACK, 0)
+const normalHighlightColor : Color = Color.TURQUOISE
 
 func _on_selection_area_body_entered(body):
 	if isBodyPlayer(body):
+		setColor(normalHighlightColor)
 		setHighlight(tableHighlightValue)
 		body.setCurrentSelection($".")
 
 
 func _on_selection_area_body_exited(body):
 	if isBodyPlayer(body):
+		setColor(normalHighlightColor)
 		setHighlight(0)
 		body.setCurrentSelection(null)
+
 
 func interactWith(interactedNode, player) -> void:
 	if interactedNode.has_method("getIsSingleClient") and clienScenestList.size() == 0:
@@ -52,3 +56,8 @@ func isBodyPlayer(body) -> bool:
 
 func setHighlight(highlight : int) -> void: 
 	$TableImage.material.set_shader_parameter("line_thickness",highlight)
+
+
+func setColor(color: Color) -> void: 
+	if color != Color.RED:
+		$TableImage.material.set_shader_parameter("line_color", color)
