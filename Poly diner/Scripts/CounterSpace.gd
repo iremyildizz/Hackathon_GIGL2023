@@ -25,3 +25,7 @@ func instatiateFood(sceneType) -> void:
 	var newFoodScene = sceneType.instantiate()
 	foodPositions[foodScenesList.size()].add_child(newFoodScene)
 	foodScenesList.append(newFoodScene)
+
+
+func _on_frist_plate_taking_area_body_entered(body):
+	pass
