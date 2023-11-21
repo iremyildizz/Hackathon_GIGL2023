@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3cagv3faqryn"]
+
+[ext_resource type="FontFile" uid="uid://ojlr03x0sjal" path="res://Multimedia/Font/Tealand.ttf" id="1_vhi2w"]
+[ext_resource type="Script" path="res://Scripts/Upgrades.gd" id="1_xfxam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fg5f0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 25
+border_width_right = 60
+border_color = Color(0.533333, 0.8, 0.8, 0)
+
+[node name="Upgrades" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xfxam")
+
+[node name="Upgrades" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.5
+offset_top = 160.0
+offset_right = 246.5
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_vhi2w")
+theme_override_font_sizes/normal_font_size = 125
+text = "Upgrades"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Upgrades2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -296.0
+offset_top = 336.0
+offset_right = 296.0
+offset_bottom = 490.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_vhi2w")
+theme_override_font_sizes/normal_font_size = 125
+text = "To be made"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NextDayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 828.0
+offset_right = 1782.0
+offset_bottom = 918.0
+theme_override_fonts/font = ExtResource("1_vhi2w")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_fg5f0")
+text = "Next Day"
+alignment = 0
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 925.0
+offset_right = 1784.0
+offset_bottom = 1015.0
+theme_override_fonts/font = ExtResource("1_vhi2w")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_fg5f0")
+text = "Back"
+alignment = 2
+
+[connection signal="mouse_entered" from="NextDayButton" to="." method="_on_next_day_button_mouse_entered"]
+[connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]
+[connection signal="mouse_entered" from="BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

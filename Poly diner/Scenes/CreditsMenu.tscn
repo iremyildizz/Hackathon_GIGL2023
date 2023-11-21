@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ci7qalcfekmt6"]
 
 [ext_resource type="Texture2D" uid="uid://dgtqawtdfra5w" path="res://Multimedia/Image/Temp_Wallpaper.png" id="1_e1aaa"]
-[ext_resource type="Script" path="res://Scenes/CreditsMenu.gd" id="1_wl4sn"]
+[ext_resource type="Script" path="res://Scripts/CreditsMenu.gd" id="1_wl4sn"]
 [ext_resource type="FontFile" uid="uid://ojlr03x0sjal" path="res://Multimedia/Font/Tealand.ttf" id="2_qww3s"]
 [ext_resource type="Texture2D" uid="uid://bxdvhm0gufuhv" path="res://Multimedia/Image/icon.svg" id="3_mj7s6"]
 

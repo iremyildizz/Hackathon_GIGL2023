@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func _on_game_timer_timeout():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/EndMenu.tscn")
 	
 
 func _on_texture_progress_bar_value_changed(value):
