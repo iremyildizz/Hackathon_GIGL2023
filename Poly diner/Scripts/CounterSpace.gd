@@ -24,8 +24,17 @@ func addToList(newFoodScene : Node2D) -> int:
 
 func instatiateFood(sceneType) -> void:
 	var newFoodScene = sceneType.instantiate()
+<<<<<<< HEAD
 	var index : int = addToList(newFoodScene)
 	if index != -1:
 		foodPositions[index].add_child(newFoodScene)
 	newFoodScene.initPoutine()
 	
+=======
+	foodPositions[foodScenesList.size()].add_child(newFoodScene)
+	foodScenesList.append(newFoodScene)
+
+
+func _on_frist_plate_taking_area_body_entered(body):
+	pass
+>>>>>>> 1cf02311318182beb5d0629fbc5f065259749da1
