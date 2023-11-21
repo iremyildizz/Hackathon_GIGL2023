@@ -76,8 +76,7 @@ func interactedNodeIsfoodPlate() -> bool:
 
 func takeFood(foodNode : Node2D) -> void:
 	if grabbedFoodList.size() < maxGrabbedFood:
-		var firstPlate = grabbedFoodList.front()
-		if firstPlate == null:
+		if grabbedFoodList.is_empty():
 			addGrabbedFood(foodNode, $FirstPlateSpawnPoint, $PlayerWithOnePlate)
 		else:
 			addGrabbedFood(foodNode, $SecondPlateSpawnPoint, $PlayerWithTwoPlates)
@@ -89,18 +88,40 @@ func addGrabbedFood(foodNode: Node2D, placementNode: Node2D, imageNode: Node2D) 
 	placementNode.add_child(foodNode)
 	foodNode.setColor(noHighlightColor)
 	
-	currentImage.visible = false
-	currentImage = imageNode
-	currentImage.visible = true
-	
 	grabbedFoodList.append(foodNode)
+	updateVisualState()
 	
 	interactedNode = null
 
 
 func serveTable(table: Node2D) -> void:
-	if grabbedFoodList.size() > 0:
+	if !grabbedFoodList.is_empty():
 		for food in grabbedFoodList:
 			if table.serveClient(food):
-				grabbedFoodList.erase(food)
+				removeFood(food)
+				updateVisualState()
 				serveTable(table)
+
+
+func updateVisualState():
+	currentImage.visible = false
+	
+	if grabbedFoodList.size() == 0:
+		currentImage = $PlayerImage
+	if grabbedFoodList.size() == 1:
+		currentImage = $PlayerWithOnePlate
+	if grabbedFoodList.size() == 2:
+		currentImage = $PlayerWithTwoPlates
+	
+	currentImage.visible = true
+
+
+func removeFood(food) -> void:
+	food.get_parent().remove_child(food)
+	
+	if grabbedFoodList.size() == 2 and food == grabbedFoodList[0]:
+		var secondFood : Node2D = grabbedFoodList[1]
+		secondFood.get_parent().remove_child(secondFood)
+		$FirstPlateSpawnPoint.add_child(secondFood)
+	
+	grabbedFoodList.erase(food)

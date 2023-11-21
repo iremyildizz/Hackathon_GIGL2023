@@ -25,7 +25,7 @@ func _on_selection_area_body_exited(body):
 
 
 func interactWith(interactedNode, player) -> void:
-	if interactedNode.has_method("getIsSingleClient") and clienScenestList.size() == 0:
+	if interactedNode.has_method("getIsSingleClient") and clienScenestList.is_empty():
 		get_tree().root.get_child(0).placeFirstClientInLine()
 		
 		if interactedNode.getIsSingleClient():
