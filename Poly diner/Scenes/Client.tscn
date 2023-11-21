@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3oq02srt87to"]
+[gd_scene load_steps=10 format=3 uid="uid://c3oq02srt87to"]
 
 [ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="1_b7por"]
 [ext_resource type="Script" path="res://Scripts/Client.gd" id="1_vylgh"]
 [ext_resource type="Texture2D" uid="uid://d0tndyivpviqe" path="res://Multimedia/Image/ClientWaiting.png" id="3_lt2q8"]
 [ext_resource type="Texture2D" uid="uid://lkwe4xrbr27f" path="res://Multimedia/Image/ClientLookingAtMenu.png" id="4_a0mlp"]
 [ext_resource type="Texture2D" uid="uid://bcglap7wjxnrw" path="res://Multimedia/Image/ClientAskForFood.png" id="5_3fkco"]
+[ext_resource type="Texture2D" uid="uid://bhbjwxc4lgmk8" path="res://Multimedia/Image/ThinkingCloud.png" id="6_ae8yn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykn0o"]
 resource_local_to_scene = true
@@ -43,3 +44,11 @@ visible = false
 material = SubResource("ShaderMaterial_jqvb8")
 position = Vector2(0, -102)
 texture = ExtResource("5_3fkco")
+
+[node name="ThinkingCloud" type="Sprite2D" parent="ClientAskForFood"]
+position = Vector2(-88, -170)
+texture = ExtResource("6_ae8yn")
+
+[node name="FoodSpawnPoint" type="Node2D" parent="ClientAskForFood"]
+position = Vector2(-94, -159)
+scale = Vector2(0.75, 0.75)

@@ -14,15 +14,22 @@ var foodScenesList : Array[Node2D] = [null, null, null, null, null]
 const foodHighlightValue : int = 3
 const normalHighlightColor : Color = Color.TURQUOISE
 
+
+func spawnFood(foodNumber: int):
+	pass
+
+
 func _on_new_food_timer_timeout():
 	instatiateFood(foodScene)
-#	$NewFoodTimer.stop()
+
 
 func addToList(newFoodScene : Node2D) -> int:
 	for i in range(0, foodScenesList.size(), 1): 
 		if foodScenesList[i] == null:
 			foodScenesList[i] = newFoodScene
 			return i
+			
+	$NewFoodTimer.stop()
 	return -1
 
 
@@ -31,10 +38,11 @@ func instatiateFood(sceneType) -> void:
 	var index : int = addToList(newFoodScene)
 	if index != -1:
 		foodPositions[index].add_child(newFoodScene)
-	newFoodScene.initIceCream()
+
 
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"
+
 
 func enterAndExitArea(foodSelected : Node2D, body, isEntered : bool ):
 	if isBodyPlayer(body) and foodSelected != null:
@@ -46,7 +54,8 @@ func enterAndExitArea(foodSelected : Node2D, body, isEntered : bool ):
 		else:
 			foodSelected.setHighlight(0)
 			body.setCurrentSelection(null)
-	
+
+
 func _on_first_plate_taking_area_body_entered(body):
 	enterAndExitArea(foodScenesList[0], body, true)
 
