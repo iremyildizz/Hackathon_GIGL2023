@@ -89,7 +89,9 @@ func clientFinishedEating() -> void:
 
 
 func leaveClients():
-	pass
+	for client in clienScenestList:
+		client.makeClientInvisible()
+
 
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"

@@ -89,3 +89,6 @@ func _on_eating_timer_timeout():
 	choosedFood.clearPlate()
 	choosedFood.makePlateDirty()
 	table.clientFinishedEating()
+
+func makeClientInvisible():
+	currentImage.visible = false
