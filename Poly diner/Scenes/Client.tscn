@@ -74,4 +74,9 @@ material = SubResource("ShaderMaterial_1ehai")
 position = Vector2(0, -100)
 texture = ExtResource("7_nxpl2")
 
+[node name="PatienceTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
 [connection signal="timeout" from="EatingTimer" to="." method="_on_eating_timer_timeout"]
+[connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]

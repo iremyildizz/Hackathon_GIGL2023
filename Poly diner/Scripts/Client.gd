@@ -7,6 +7,7 @@ var choosedFood : Node2D = null
 var table : Node2D = null
 var isEating = false
 var finishedEating = false
+var patienceTime : int = 10
 
 const isSingleClient : bool = true
 const isDoubleClient : bool = false
@@ -41,6 +42,7 @@ func lookAtMenu() -> void:
 
 
 func askForFood() -> void:
+	$PatienceTimer.start(patienceTime)
 	$ClientLookingAtMenuImage.visible = false
 	$ClientAskForFood.visible = true
 	
@@ -91,4 +93,8 @@ func _on_eating_timer_timeout():
 	table.clientFinishedEating()
 
 func makeClientInvisible():
+	currentImage.visible = false
+
+
+func _on_patience_timer_timeout():
 	currentImage.visible = false
