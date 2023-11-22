@@ -58,6 +58,9 @@ func setInteractedNode(nodeInteracted: Node2D) -> void:
 	
 	if interactedNodeIsTablePlate():
 		serveTable(interactedNode)
+		
+	if interactedNodeIsTrashCan():
+		removeAllFood()
 
 
 func isAnInteractedNode(nodeCompare: Node2D) -> bool:
@@ -70,6 +73,10 @@ func interactedNodeIsTablePlate() -> bool:
 
 func interactedNodeIsfoodPlate() -> bool:
 	return interactedNode != null and interactedNode.name == "Food"
+
+
+func interactedNodeIsTrashCan() -> bool:
+	return interactedNode != null and interactedNode.name == "TrashCan"
 
 
 func takeFood(foodNode : Node2D) -> void:
@@ -126,3 +133,11 @@ func removeFood(food) -> void:
 		$FirstPlateSpawnPoint.add_child(secondFood)
 	
 	grabbedFoodList.erase(food)
+
+
+func removeAllFood() -> void:
+	for food in grabbedFoodList:
+		removeFood(food)
+		removeAllFood()
+		
+	updateVisualState()
