@@ -134,7 +134,8 @@ func _on_patience_timer_timeout():
 		table.leaveClients(false)
 
 
-func _on_timer_timeout():		
+func _on_timer_timeout():
+	choosedFood.reduceFoodValue()
 	if timerState == 0:
 		timerState = 1
 		$EmojiFront/Angry.visible = true
