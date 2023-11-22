@@ -79,10 +79,13 @@ func startEating() -> void:
 	
 	if $ClientLookingAtMenuImage.flip_h:
 		$BackEatingPoint.add_child(choosedFood)
+		$ClientEatingImage/ArmBackPoint.visible = true
+		$AnimationPlayer.play("Eating_Anımation_Back")
 		flipHImage()
 	else:
 		$FrontEatingPoint.add_child(choosedFood)
-
+		$ClientEatingImage/ArmFrontPoint.visible = true
+		$AnimationPlayer.play("Eating_Animation_Front")
 
 func interactWith(interactedNode, player) -> void:
 	player.setInteractedNode($".")
@@ -105,6 +108,7 @@ func _on_eating_timer_timeout():
 	choosedFood.clearPlate()
 	choosedFood.makePlateDirty()
 	table.clientFinishedEating()
+	$AnimationPlayer.stop()
 
 func makeClientInvisible():
 	currentImage.visible = false
