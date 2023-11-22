@@ -105,4 +105,4 @@ func _on_patience_timer_timeout():
 		if clientState == 0:
 			get_tree().root.get_child(0).placeFirstClientInLine()
 		if clientState == 1:
-			
+			pass
