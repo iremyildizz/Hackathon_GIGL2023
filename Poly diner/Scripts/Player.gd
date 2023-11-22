@@ -37,8 +37,6 @@ func handleAction() -> void:
 
 
 func interactNodes() -> void:
-	if currentSelection == interactedNode:
-		return
 	currentSelection.interactWith(interactedNode, $".")
 
 

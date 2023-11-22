@@ -97,4 +97,5 @@ func makeClientInvisible():
 
 
 func _on_patience_timer_timeout():
-	currentImage.visible = false
+	#currentImage.visible = false
+	pass
