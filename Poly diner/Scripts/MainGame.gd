@@ -13,4 +13,4 @@ func takeCounterFood(food: Node2D) -> void:
 
 
 func getPayment(value: int) -> void:
-	pass
+	$CashRegister.addProfit(value)
