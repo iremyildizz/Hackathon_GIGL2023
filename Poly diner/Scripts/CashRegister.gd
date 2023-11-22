@@ -1,7 +1,7 @@
 extends Node2D
 
 var startingMoney : int = 0
-var debtMoney : int = 100
+var debtMoney : int = 130
 
 func _ready():
 	$Image/Debt.text = str(debtMoney)

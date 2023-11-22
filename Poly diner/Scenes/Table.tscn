@@ -45,7 +45,7 @@ position = Vector2(-184, -16)
 position = Vector2(184, -16)
 
 [node name="ClientLookingMenuTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="MoneySpawnPoint" type="Node2D" parent="."]
