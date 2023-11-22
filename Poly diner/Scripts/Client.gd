@@ -58,6 +58,7 @@ func askForFood() -> void:
 
 func startEating() -> void:
 	clientState = 2
+	$PatienceTimer.stop()
 	isEating = true
 	$EatingTimer.start()
 	
@@ -101,8 +102,13 @@ func makeClientInvisible():
 
 
 func _on_patience_timer_timeout():
-	if get_parent().name != "DoubleClient":
-		if clientState == 0:
+	if clientState == 0:
+		if get_parent().name != "DoubleClient":
 			get_tree().root.get_child(0).placeFirstClientInLine()
-		if clientState == 1:
-			pass
+		else:
+			get_parent().get_children().clear()
+			print("double")
+			get_tree().root.get_child(0).placeFirstClientInLine()
+			
+	if clientState == 1:
+		table.leaveClients(false)

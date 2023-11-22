@@ -87,14 +87,16 @@ func clientFinishedEating() -> void:
 		if !client.getFinishedEating():
 			return
 			
-	leaveClients()
+	leaveClients(true)
 
 
-func leaveClients():
+func leaveClients(payed : bool):
 	for client in clienScenestList:
 		client.makeClientInvisible()
-	
-	instatiateMoney(moneyScene)
+	if payed:
+		instatiateMoney(moneyScene)
+	else:
+		cleanTable()
 
 func instatiateMoney(sceneType) -> void:
 	var newMoneyScene = sceneType.instantiate()
