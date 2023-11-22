@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5pk85sue6vvx"]
+
+[ext_resource type="Script" path="res://Scripts/Money.gd" id="1_g2thy"]
+[ext_resource type="Texture2D" uid="uid://blr620yyutm27" path="res://Multimedia/Image/Money.png" id="1_uvkr8"]
+[ext_resource type="Texture2D" uid="uid://bxtgdvpxkmlop" path="res://Multimedia/Image/Coin.png" id="2_bkob4"]
+
+[node name="Money" type="Node2D"]
+script = ExtResource("1_g2thy")
+
+[node name="Money" type="Sprite2D" parent="."]
+texture = ExtResource("1_uvkr8")
+
+[node name="Coin" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_bkob4")
