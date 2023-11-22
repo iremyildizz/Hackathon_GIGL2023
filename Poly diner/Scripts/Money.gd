@@ -24,12 +24,3 @@ func setMoney(moneyValue : int) -> void:
 	image.visible = true	
 	money = moneyValue
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func moneyInit() -> void:
-	$Money.visible = true
-
-func coinInit() -> void:
-	$Coin.visible = true

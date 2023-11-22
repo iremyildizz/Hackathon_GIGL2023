@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var clientScene = preload("res://Scenes/Client.tscn")
+var moneyScene = preload("res://Scenes/Money.tscn")
 @onready var clientPositions : Array[Node2D] = [$ClientPlacesPoints/FirstPlace, $ClientPlacesPoints/SecondPlace]
 
 var clienScenestList : Array[Node2D] = []
@@ -91,6 +91,12 @@ func clientFinishedEating() -> void:
 func leaveClients():
 	for client in clienScenestList:
 		client.makeClientInvisible()
+	
+	instatiateMoney(moneyScene)
+
+func instatiateMoney(sceneType) -> void:
+	var newMoneyScene = sceneType.instantiate()
+	$MoneySpawnPoint.add_child(newMoneyScene)
 
 
 func isBodyPlayer(body) -> bool:

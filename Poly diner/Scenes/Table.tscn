@@ -48,6 +48,9 @@ position = Vector2(184, -16)
 wait_time = 2.0
 one_shot = true
 
+[node name="MoneySpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -104)
+
 [connection signal="body_entered" from="SelectionArea" to="." method="_on_selection_area_body_entered"]
 [connection signal="body_exited" from="SelectionArea" to="." method="_on_selection_area_body_exited"]
 [connection signal="timeout" from="ClientLookingMenuTimer" to="." method="_on_client_looking_menu_timer_timeout"]
