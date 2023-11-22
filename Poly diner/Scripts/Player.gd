@@ -96,7 +96,11 @@ func addGrabbedFood(foodNode: Node2D, placementNode: Node2D, imageNode: Node2D) 
 
 
 func serveTable(table: Node2D) -> void:
-	if !grabbedFoodList.is_empty():
+	print(table.getIsFinishedTable())
+	if table.getIsFinishedTable():
+		table.cleanTable()
+		print("clean")
+	elif !grabbedFoodList.is_empty():
 		for food in grabbedFoodList:
 			if table.serveClient(food):
 				removeFood(food)

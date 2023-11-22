@@ -5,6 +5,7 @@ var moneyScene = preload("res://Scenes/Money.tscn")
 
 var clienScenestList : Array[Node2D] = []
 var clientsAreWaitingForFood = false
+var finishedTable = false
 
 const tableHighlightValue : int = 3
 const noHighlightColor : Color = Color(Color.BLACK, 0)
@@ -97,7 +98,23 @@ func leaveClients():
 func instatiateMoney(sceneType) -> void:
 	var newMoneyScene = sceneType.instantiate()
 	$MoneySpawnPoint.add_child(newMoneyScene)
+	finishedTable = true
 
+
+func getIsFinishedTable() -> bool:
+	return finishedTable
+
+
+func cleanTable():
+	for client in clienScenestList:
+		client.get_parent().remove_child(client)
+		client.queue_free()
+	clienScenestList.clear()
+	
+	var moneyChild : Node2D = $MoneySpawnPoint.get_children().front()
+	$MoneySpawnPoint.remove_child(moneyChild)
+	moneyChild.queue_free()
+	finishedTable = false
 
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"
