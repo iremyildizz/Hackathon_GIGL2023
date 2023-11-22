@@ -4,6 +4,7 @@ var foodScene = preload("res://Scenes/Food.tscn")
 @onready var currentImage = $ClientWaitingImage
 
 var choosedFood : Node2D = null
+var table : Node2D = null
 var isEating = false
 var finishedEating = false
 
@@ -22,6 +23,10 @@ func setHighlight(highlight : int) -> void:
 
 func setColor(color: Color) -> void: 
 	currentImage.material.set_shader_parameter("line_color", color)
+
+
+func setTable(newTable: Node2D):
+	table = newTable
 
 
 func flipHImage() -> void :
@@ -81,3 +86,6 @@ func getFinishedEating() -> bool:
 
 func _on_eating_timer_timeout():
 	finishedEating = true
+	choosedFood.clearPlate()
+	choosedFood.makePlateDirty()
+	table.clientFinishedEating()

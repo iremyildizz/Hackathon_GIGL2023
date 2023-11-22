@@ -10,3 +10,7 @@ func askFoodToCook(foodNumber: int) -> void:
 
 func takeCounterFood(food: Node2D) -> void:
 	$CounterSpace.deleteFoodFromList(food)
+
+
+func clientFinishedEating() -> void:
+	pass

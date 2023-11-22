@@ -49,6 +49,7 @@ func interactWith(interactedNode, player) -> void:
 func instatiateClient(client) -> void:
 	clientPositions[clienScenestList.size()].add_child(client)
 	clienScenestList.append(client)
+	client.setTable($".")
 	client.lookAtMenu()
 	$ClientLookingMenuTimer.start()
 
@@ -77,6 +78,18 @@ func areClientsWaitingForFood() -> bool:
 			
 	clientsAreWaitingForFood = false
 	return clientsAreWaitingForFood
+
+
+func clientFinishedEating() -> void:
+	for client in clienScenestList:
+		if !client.getFinishedEating():
+			return
+			
+	leaveClients()
+
+
+func leaveClients():
+	pass
 
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"

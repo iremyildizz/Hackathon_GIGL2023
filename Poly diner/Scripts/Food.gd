@@ -4,6 +4,7 @@ enum Plates {POUTINE = 0, ICE_CREAM = 1}
 
 const possiblesVlues : int = 2
 var plate : int = 0
+var image : Node2D = null
 
 
 func setRandomizedPlate() -> void:
@@ -13,20 +14,21 @@ func setRandomizedPlate() -> void:
 
 func setPlate(plateValue : int) -> void:
 	if plateValue == Plates.POUTINE:
-		initPoutine()
+		image = $Poutine
 	if plateValue == Plates.ICE_CREAM:
-		initIceCream()
-		
+		image = $IceCream
+	
+	image.visible = true	
 	plate = plateValue
 
 
-func initPoutine() -> void:
-	$Poutine.visible = true
+func clearPlate() -> void:
+	image.visible = false
 
 
-func initIceCream() -> void:
-	$IceCream.visible = true
-
+func makePlateDirty() -> void:
+	$CleanPlate.visible = false
+	$DirtyPlate.visible = true
 
 func setHighlight(highlight : int) -> void: 
 	$".".material.set_shader_parameter("line_thickness", highlight)
