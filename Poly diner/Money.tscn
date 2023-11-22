@@ -8,6 +8,7 @@
 script = ExtResource("1_g2thy")
 
 [node name="Money" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_uvkr8")
 
 [node name="Coin" type="Sprite2D" parent="."]
