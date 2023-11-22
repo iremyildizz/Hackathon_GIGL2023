@@ -60,7 +60,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_w64k7")
 
 [node name="NewFoodTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="body_entered" from="SpawnContainer/FirstPlace/FirstPlateTakingArea" to="." method="_on_first_plate_taking_area_body_entered"]
