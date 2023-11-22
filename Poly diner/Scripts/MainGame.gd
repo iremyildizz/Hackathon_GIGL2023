@@ -12,5 +12,5 @@ func takeCounterFood(food: Node2D) -> void:
 	$CounterSpace.deleteFoodFromList(food)
 
 
-func clientFinishedEating() -> void:
+func getPayment(value: int) -> void:
 	pass

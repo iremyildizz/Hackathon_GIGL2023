@@ -6,3 +6,39 @@
 
 [node name="Image" type="Sprite2D" parent="."]
 texture = ExtResource("1_xsn7g")
+
+[node name="DollarDebt" type="Label" parent="Image"]
+offset_left = 131.0
+offset_top = -102.0
+offset_right = 171.0
+offset_bottom = -42.0
+theme_override_colors/font_color = Color(0.756863, 0.447059, 0.239216, 1)
+theme_override_font_sizes/font_size = 41
+text = "$"
+
+[node name="DollarProfit" type="Label" parent="Image"]
+offset_left = 132.0
+offset_top = -28.0
+offset_right = 172.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.176471, 0.615686, 0.529412, 1)
+theme_override_font_sizes/font_size = 41
+text = "$"
+
+[node name="Debt" type="Label" parent="Image"]
+offset_left = 7.0
+offset_top = -102.0
+offset_right = 47.0
+offset_bottom = -42.0
+theme_override_colors/font_color = Color(0.756863, 0.447059, 0.239216, 1)
+theme_override_font_sizes/font_size = 41
+text = "0"
+
+[node name="Profit" type="Label" parent="Image"]
+offset_left = 8.0
+offset_top = -30.0
+offset_right = 48.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.176471, 0.615686, 0.529412, 1)
+theme_override_font_sizes/font_size = 41
+text = "0"

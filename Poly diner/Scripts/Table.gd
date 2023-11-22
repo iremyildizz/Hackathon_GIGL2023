@@ -10,6 +10,7 @@ var finishedTable = false
 const tableHighlightValue : int = 3
 const noHighlightColor : Color = Color(Color.BLACK, 0)
 const normalHighlightColor : Color = Color.TURQUOISE
+const paymentValue = 15
 
 func _on_selection_area_body_entered(body):
 	if isBodyPlayer(body):
@@ -106,6 +107,9 @@ func getIsFinishedTable() -> bool:
 
 
 func cleanTable():
+	var numberOfPayments : int = clienScenestList.size()
+	get_tree().root.get_child(0).getPayment(numberOfPayments * paymentValue)
+	
 	for client in clienScenestList:
 		client.get_parent().remove_child(client)
 		client.queue_free()
