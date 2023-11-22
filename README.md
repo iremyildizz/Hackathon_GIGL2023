@@ -1,6 +1,6 @@
 # Hackathon_GIGL2023
 
-Irem Yildiz
+Irem Yildiz,
 Pablo Cabale
 
 PolyDiner :)
