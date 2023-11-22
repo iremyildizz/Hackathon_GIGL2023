@@ -111,9 +111,11 @@ func cleanTable():
 		client.queue_free()
 	clienScenestList.clear()
 	
-	var moneyChild : Node2D = $MoneySpawnPoint.get_children().front()
-	$MoneySpawnPoint.remove_child(moneyChild)
-	moneyChild.queue_free()
+	if !$MoneySpawnPoint.get_children().is_empty():
+		var moneyChild : Node2D = $MoneySpawnPoint.get_children().front()
+		$MoneySpawnPoint.remove_child(moneyChild)
+		moneyChild.queue_free()
+		
 	finishedTable = false
 
 func isBodyPlayer(body) -> bool:
