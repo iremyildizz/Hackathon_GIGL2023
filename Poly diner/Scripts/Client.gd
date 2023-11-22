@@ -3,11 +3,13 @@ extends Node2D
 var foodScene = preload("res://Scenes/Food.tscn") 
 @onready var currentImage = $ClientWaitingImage
 
+enum States {IN_QUEUE = 0, WAITING_FOOD = 1, EATING = 2}
 var choosedFood : Node2D = null
 var table : Node2D = null
 var isEating = false
 var finishedEating = false
 var patienceTime : int = 10
+var clientState : int = 0
 
 const isSingleClient : bool = true
 const isDoubleClient : bool = false
@@ -42,6 +44,7 @@ func lookAtMenu() -> void:
 
 
 func askForFood() -> void:
+	clientState = 1
 	$PatienceTimer.start(patienceTime)
 	$ClientLookingAtMenuImage.visible = false
 	$ClientAskForFood.visible = true
@@ -54,6 +57,7 @@ func askForFood() -> void:
 
 
 func startEating() -> void:
+	clientState = 2
 	isEating = true
 	$EatingTimer.start()
 	
@@ -97,5 +101,8 @@ func makeClientInvisible():
 
 
 func _on_patience_timer_timeout():
-	#currentImage.visible = false
-	pass
+	if get_parent().name != "DoubleClient":
+		if clientState == 0:
+			get_tree().root.get_child(0).placeFirstClientInLine()
+		if clientState == 1:
+			
