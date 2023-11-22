@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://d31q63ivj6k5b"]
+[gd_scene load_steps=12 format=3 uid="uid://d31q63ivj6k5b"]
 
 [ext_resource type="Texture2D" uid="uid://ckfwc2bd12bo4" path="res://Multimedia/Image/PlateClean.png" id="1_ctqdc"]
 [ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="1_cypfi"]
 [ext_resource type="Script" path="res://Scripts/Food.gd" id="1_kd321"]
 [ext_resource type="Texture2D" uid="uid://d2b68gl4enrw2" path="res://Multimedia/Image/Poutine.png" id="2_e0ohx"]
 [ext_resource type="Texture2D" uid="uid://djpapssbci8yi" path="res://Multimedia/Image/IceCream.png" id="3_p15ow"]
+[ext_resource type="Texture2D" uid="uid://c87lerpvnxj3q" path="res://Multimedia/Image/MilkShake.png" id="6_0csry"]
+[ext_resource type="Texture2D" uid="uid://cd7f4grgvdcxb" path="res://Multimedia/Image/DirtyPlate.png" id="6_7gqiv"]
+[ext_resource type="Texture2D" uid="uid://d2v6kad2j2xpr" path="res://Multimedia/Image/Shrimp.png" id="6_x2cll"]
+[ext_resource type="Texture2D" uid="uid://28wq68gda2wn" path="res://Multimedia/Image/Burger.png" id="7_p6yvw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_njtje"]
 resource_local_to_scene = true
@@ -30,5 +34,25 @@ texture = ExtResource("2_e0ohx")
 
 [node name="IceCream" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -39)
+position = Vector2(0, -21)
 texture = ExtResource("3_p15ow")
+
+[node name="MilkShake" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -39)
+texture = ExtResource("6_0csry")
+
+[node name="Shrimp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+texture = ExtResource("6_x2cll")
+
+[node name="Burger" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+texture = ExtResource("7_p6yvw")
+
+[node name="DirtyPlate" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("6_7gqiv")

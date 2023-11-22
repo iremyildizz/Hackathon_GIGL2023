@@ -1,9 +1,10 @@
 extends Node2D
 
-enum Plates {POUTINE = 0, ICE_CREAM = 1}
+enum Plates {POUTINE = 0, ICE_CREAM = 1, MILK_SHAKE = 2, BURGER = 3, SHRIMP = 4}
 
-const possiblesVlues : int = 2
+const possiblesVlues : int = 5
 var plate : int = 0
+var image : Node2D = null
 
 
 func setRandomizedPlate() -> void:
@@ -13,20 +14,27 @@ func setRandomizedPlate() -> void:
 
 func setPlate(plateValue : int) -> void:
 	if plateValue == Plates.POUTINE:
-		initPoutine()
+		image = $Poutine
 	if plateValue == Plates.ICE_CREAM:
-		initIceCream()
-		
+		image = $IceCream
+	if plateValue == Plates.MILK_SHAKE:
+		image = $MilkShake
+	if plateValue == Plates.BURGER:
+		image = $Burger
+	if plateValue == Plates.SHRIMP:
+		image = $Shrimp
+	
+	image.visible = true	
 	plate = plateValue
 
 
-func initPoutine() -> void:
-	$Poutine.visible = true
+func clearPlate() -> void:
+	image.visible = false
 
 
-func initIceCream() -> void:
-	$IceCream.visible = true
-
+func makePlateDirty() -> void:
+	$CleanPlate.visible = false
+	$DirtyPlate.visible = true
 
 func setHighlight(highlight : int) -> void: 
 	$".".material.set_shader_parameter("line_thickness", highlight)

@@ -41,6 +41,7 @@ position = Vector2(-20, 0)
 position = Vector2(-170, -1)
 
 [node name="NewClientTimer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [connection signal="body_entered" from="LineSelectionArea" to="." method="_on_line_selection_area_body_entered"]

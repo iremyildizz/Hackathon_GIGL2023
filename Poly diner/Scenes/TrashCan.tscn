@@ -1,8 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://3w280shl4pao"]
+[gd_scene load_steps=6 format=3 uid="uid://3w280shl4pao"]
 
 [ext_resource type="Texture2D" uid="uid://weul2vj7f0lv" path="res://Multimedia/Image/TrashCan.png" id="1_4xef1"]
+[ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="1_vmtbt"]
+[ext_resource type="Script" path="res://Scripts/TrashCan.gd" id="1_y35ed"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqdsi"]
+shader = ExtResource("1_vmtbt")
+shader_parameter/line_color = Color(0, 0, 0, 0)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehtjv"]
 
 [node name="TrashCan" type="Node2D"]
+material = SubResource("ShaderMaterial_wqdsi")
+script = ExtResource("1_y35ed")
 
 [node name="Image" type="Sprite2D" parent="."]
+use_parent_material = true
 texture = ExtResource("1_4xef1")
+
+[node name="TrashArea" type="Area2D" parent="."]
+position = Vector2(-20, 0)
+
+[node name="Collision" type="CollisionShape2D" parent="TrashArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehtjv")
+
+[connection signal="body_entered" from="TrashArea" to="." method="_on_trash_area_body_entered"]
+[connection signal="body_exited" from="TrashArea" to="." method="_on_trash_area_body_exited"]

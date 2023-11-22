@@ -1,14 +1,16 @@
 extends StaticBody2D
 
-var clientScene = preload("res://Scenes/Client.tscn")
+var moneyScene = preload("res://Scenes/Money.tscn")
 @onready var clientPositions : Array[Node2D] = [$ClientPlacesPoints/FirstPlace, $ClientPlacesPoints/SecondPlace]
 
 var clienScenestList : Array[Node2D] = []
 var clientsAreWaitingForFood = false
+var finishedTable = false
 
 const tableHighlightValue : int = 3
 const noHighlightColor : Color = Color(Color.BLACK, 0)
 const normalHighlightColor : Color = Color.TURQUOISE
+const paymentValue = 15
 
 func _on_selection_area_body_entered(body):
 	if isBodyPlayer(body):
@@ -49,6 +51,7 @@ func interactWith(interactedNode, player) -> void:
 func instatiateClient(client) -> void:
 	clientPositions[clienScenestList.size()].add_child(client)
 	clienScenestList.append(client)
+	client.setTable($".")
 	client.lookAtMenu()
 	$ClientLookingMenuTimer.start()
 
@@ -77,6 +80,49 @@ func areClientsWaitingForFood() -> bool:
 			
 	clientsAreWaitingForFood = false
 	return clientsAreWaitingForFood
+
+
+func clientFinishedEating() -> void:
+	for client in clienScenestList:
+		if !client.getFinishedEating():
+			return
+			
+	leaveClients(true)
+
+
+func leaveClients(payed : bool):
+	for client in clienScenestList:
+		client.makeClientInvisible()
+	if payed:
+		instatiateMoney(moneyScene)
+	else:
+		cleanTable()
+
+func instatiateMoney(sceneType) -> void:
+	var newMoneyScene = sceneType.instantiate()
+	$MoneySpawnPoint.add_child(newMoneyScene)
+	finishedTable = true
+
+
+func getIsFinishedTable() -> bool:
+	return finishedTable
+
+
+func cleanTable():
+	var numberOfPayments : int = clienScenestList.size()
+	get_tree().root.get_child(0).getPayment(numberOfPayments * paymentValue)
+	
+	for client in clienScenestList:
+		client.get_parent().remove_child(client)
+		client.queue_free()
+	clienScenestList.clear()
+	
+	if !$MoneySpawnPoint.get_children().is_empty():
+		var moneyChild : Node2D = $MoneySpawnPoint.get_children().front()
+		$MoneySpawnPoint.remove_child(moneyChild)
+		moneyChild.queue_free()
+		
+	finishedTable = false
 
 func isBodyPlayer(body) -> bool:
 	return body.name == "Player"
