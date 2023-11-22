@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3oq02srt87to"]
+[gd_scene load_steps=14 format=3 uid="uid://c3oq02srt87to"]
 
 [ext_resource type="Shader" path="res://Multimedia/Shaders/OutlineShader.gdshader" id="1_b7por"]
 [ext_resource type="Script" path="res://Scripts/Client.gd" id="1_vylgh"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://lkwe4xrbr27f" path="res://Multimedia/Image/ClientLookingAtMenu.png" id="4_a0mlp"]
 [ext_resource type="Texture2D" uid="uid://bcglap7wjxnrw" path="res://Multimedia/Image/ClientAskForFood.png" id="5_3fkco"]
 [ext_resource type="Texture2D" uid="uid://bhbjwxc4lgmk8" path="res://Multimedia/Image/ThinkingCloud.png" id="6_ae8yn"]
+[ext_resource type="Texture2D" uid="uid://ce2ro2rtgfw2o" path="res://Multimedia/Image/Angry.png" id="7_lpvsv"]
 [ext_resource type="Texture2D" uid="uid://8m45gdt747uk" path="res://Multimedia/Image/ClientEating.png" id="7_nxpl2"]
+[ext_resource type="Texture2D" uid="uid://bs3nxuefa628s" path="res://Multimedia/Image/ReallyAngry.png" id="8_1oj3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykn0o"]
 resource_local_to_scene = true
@@ -68,6 +70,19 @@ position = Vector2(100, -100)
 [node name="BackEatingPoint" type="Node2D" parent="."]
 position = Vector2(-100, -100)
 
+[node name="EmojiFront" type="Node2D" parent="."]
+position = Vector2(40, -208)
+scale = Vector2(0.5, 0.5)
+
+[node name="Angry" type="Sprite2D" parent="EmojiFront"]
+visible = false
+texture = ExtResource("7_lpvsv")
+
+[node name="ReallyAngry" type="Sprite2D" parent="EmojiFront"]
+visible = false
+position = Vector2(-1, -3)
+texture = ExtResource("8_1oj3j")
+
 [node name="ClientEatingImage" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_1ehai")
@@ -78,5 +93,8 @@ texture = ExtResource("7_nxpl2")
 wait_time = 10.0
 autostart = true
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="EatingTimer" to="." method="_on_eating_timer_timeout"]
 [connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
