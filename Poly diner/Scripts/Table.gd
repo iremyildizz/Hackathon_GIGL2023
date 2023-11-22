@@ -110,6 +110,7 @@ func getIsFinishedTable() -> bool:
 
 func cleanTable():
 	var numberOfPayments : int = clienScenestList.size()
+	var paymentValue = clienScenestList.front().choosedFood.getFoodValue()
 	get_tree().root.get_child(0).getPayment(numberOfPayments * paymentValue)
 	
 	for client in clienScenestList:
